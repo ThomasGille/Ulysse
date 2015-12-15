@@ -11,9 +11,10 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        // put your code here
-        // je suis une patate amnésique
-        $patate=NULL;
+	        // put your code here
+	        // je suis une patate amnésique
+	        $patate=NULL;
+	        $test=0;
         ?>
     </body>
 </html>
