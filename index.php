@@ -17,7 +17,7 @@ and open the template in the editor.
                 include "connectDB";
 	        // je suis une patate amnésique
 	        $patate=NULL;
-	        $test=0;
+	        $test=1;
         ?>
     </body>
 </html>
