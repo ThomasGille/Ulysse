@@ -23,8 +23,10 @@ and open the template in the editor.
                 //test cryptage
                 $pswrd = "azerty";
 
-                echo crypt($pswrd, password_hash($pswrd, PASSWORD_BCRYPT));
-
+                $mdp = crypt($pswrd, password_hash($pswrd, PASSWORD_BCRYPT));
+                
+                if ($mdp == "$2y$10$ZkFhNuxzWYZnrFvhDFDvCO6bcYP5tdGHiE1sGzeF8oRKl6oDBCfE. ")
+                    echo "okokokok !!! "
 
 
         ?>
