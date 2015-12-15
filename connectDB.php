@@ -19,6 +19,6 @@ $link = mysqli_connect($host,$user ,$password,$dbname);
 	echo '<br />';
 	
 	// on sélectionne la base
-	mysqli_select_db($link,'test');
+	mysqli_select_db($link,'Ulysse');
 	echo '<br />';
 	
