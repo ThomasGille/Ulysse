@@ -12,6 +12,7 @@ and open the template in the editor.
     <body>
         <?php
 	        // put your code here
+        
                 include "Var.php";
                 include "Menu.php";
                 include "connectDB.php";
