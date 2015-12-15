@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include_once 'CryptageMdp.php';
 include_once 'connectBD.php';
@@ -17,9 +18,8 @@ if ($Crypt != null){
     $reqID = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
     
     if (reqID == null){
-        echo "erreur";
+        echo "Erreur : personne inexistante / ID erroné";
     }else{
-        echo "ID existant";
         // si etape 1. vrai : 
         // 
         // 2. Récupération Mdp de la personne
@@ -27,7 +27,16 @@ if ($Crypt != null){
     $MDPHash = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
     
         // 3. Cryptage Mdp entré en connexion
-    $Crypt = Cryptage($_POST["mdp"]);
+        $Crypt = Cryptage($_POST["mdp"]);
+        
+        // 4. Verification $MDPHash == $Crypt ?
+        if ($MDPHash == $Crypt){
+            //5. Verification si Personne est prof ou élève
+            
+            // 5.affichage du bon menu
+        }else{
+            echo "Erreur : MDP incorrect";
+        }
     }
     
     if ($req == $idPers){
