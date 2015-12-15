@@ -18,6 +18,15 @@ and open the template in the editor.
 	        // je suis une patate amnésique
 	        $patate=NULL;
 	        $test=1;
+        
+
+                //test cryptage
+                $pswrd = "azerty";
+
+                echo crypt($pswrd, password_hash($pswrd, PASSWORD_BCRYPT));
+
+
+
         ?>
     </body>
 </html>
