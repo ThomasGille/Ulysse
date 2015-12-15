@@ -11,11 +11,12 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+        session_start();
         include "Var.php";
         include "Menu.php";
         include "connectDB.php";
 
-        echo '<form name="connect" method="post" action="traiteLogin.php">
+        echo '<form name="connect" method="post" action="use_creaQCM.php">
 			
 			Entrez un nom : <input type="text" name="nom" value=""  required> <br/>
 			
