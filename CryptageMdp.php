@@ -1,17 +1,20 @@
 <?php
 
 
-//$pswrd = $POST["mdp"];
+$pswrd = "azerty";
 
- $pswrd = "azerty";
- $pswrdHashed = password_hash($pswrd, PASSWORD_BCRYPT);
+//function Cryptage($pswrd){
+    
+    $pswrdHashed = password_hash($pswrd, PASSWORD_BCRYPT);
+    
+    echo crypt($pswrd, $pswrdHashed );
+    echo "<br/>";
+    
+    echo $pswrdHashed;
 
-echo crypt($pswrd, $pswrdHashed );
- 
-if (crypt($pswrd, $pswrdHashed ) == $pswrdHashed){
-    echo "mdp correct"; 
-}else{
-    echo "mdp incorrect";
-}
- 
-                
+    if (crypt($pswrd, $pswrdHashed) == $pswrdHashed){
+        return $pswrdHashed;
+    }else{
+       return null; 
+    }
+//}               
