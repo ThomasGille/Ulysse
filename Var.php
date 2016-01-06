@@ -7,7 +7,7 @@
  */
 
 // On démarre la session
-    session_start ();
+session_start();
 // params . inc . php
 $host = "localhost";
 $user = "root";

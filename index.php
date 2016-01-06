@@ -11,12 +11,9 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        // On démarre la session
-        session_start();
-        // put your code here
 
         include "Menu.php";
-        include "connectDB.php";
+        include "connectDB.php";//inclut les variables
         // je suis une patate amnésique
         $patate = NULL;
         $test = 1;

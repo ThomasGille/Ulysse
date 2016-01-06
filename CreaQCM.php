@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        session_start();
+        
         include "Var.php";
         include "Menu.php";
         include "connectDB.php";
