@@ -5,7 +5,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-include "Var.php";
 include "connectDB.php";
 
 ///////////// insertion question
@@ -32,10 +31,22 @@ echo "ID question = " . $idQuestion . "<br />";
 
 /////////// insertion réponses
 
-if(isset($_POST['cha']))$cha=1;else $cha=0;
-if(isset($_POST['chb']))$chb=1;else $chb=0;
-if(isset($_POST['chc']))$chc=1;else $chc=0;
-if(isset($_POST['chd']))$chd=1;else $chd=0;
+if (isset($_POST['cha']))
+    $cha = 1;
+else
+    $cha = 0;
+if (isset($_POST['chb']))
+    $chb = 1;
+else
+    $chb = 0;
+if (isset($_POST['chc']))
+    $chc = 1;
+else
+    $chc = 0;
+if (isset($_POST['chd']))
+    $chd = 1;
+else
+    $chd = 0;
 
 $sql = "INSERT INTO `ulysse`.`reponse` (`idReponse`, `idQuestion`, `enonceReponse`, `juste`) VALUES 
         (NULL, " . $idQuestion . ", \"" . $_POST['rep1'] . "\"," . $cha . "), 
@@ -51,3 +62,7 @@ if (mysqli_query($link, $sql)) {
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($link);
 }
+
+// On redirige le visiteur vers la page création de question
+header("Location:./visuCreationQCM.php");
+$_SESSION["msg"]="Question ajoutée!";

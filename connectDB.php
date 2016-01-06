@@ -12,11 +12,11 @@ $link = mysqli_connect($host,$user ,$password,$dbname);
 				. mysqli_connect_error());
 	}
 
-	echo 'Succes... ' . mysqli_get_host_info($link) . "\n";
-	echo '<br />';
-	echo '<br />';
+//	echo 'Succes... ' . mysqli_get_host_info($link) . "\n";
+//	echo '<br />';
+//	echo '<br />';
 	
 	// on sélectionne la base
 	mysqli_select_db($link,'Ulysse');
-	echo '<br />';
+//	echo '<br />';
 	
