@@ -46,7 +46,7 @@ and open the template in the editor.
 		// Sinon affiche l'erreur
 		else {
 
-			echo mysqli_error($linkDb) ; echo '<br />' ;
+			$_SESSION["msg"] = mysqli_error($linkDb);
 		}
 		
 		return $rows;
@@ -73,7 +73,7 @@ and open the template in the editor.
 		// Sinon affiche l'erreur
 		else {
 
-			echo mysqli_error($linkDb) ; echo '<br />' ;
+			$_SESSION["msg"] = mysqli_error($linkDb) ;
 		}
 		
 		
