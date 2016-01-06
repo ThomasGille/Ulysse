@@ -1,7 +1,6 @@
 
-<?php
-    session_start();
-?>
+
+
 <html>
     <meta charset="UTF-8">
 </html>
@@ -45,10 +44,11 @@ if ($Crypt!= null){
             $admin = $pswd = mysqli_fetch_array($req);
             
             if ($admin[0] == '1'){
-                echo "accès menu prof";
+                 header('Location: menuProf.php');      
+
             }
             else{
-                echo "accès menu élève";
+             header('Location: menuEleve.php');      
             }
           
         }else{
