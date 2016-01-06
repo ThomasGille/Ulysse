@@ -24,7 +24,7 @@ and open the template in the editor.
         //print_r(fetchQcm($link));
         $qcms = fetchQcm($link);
         afficheQcm($qcms);      
-        
+
         if (isset($_SESSION["msg"])) {
             echo $_SESSION["msg"];
             $_SESSION["msg"] = NULL;

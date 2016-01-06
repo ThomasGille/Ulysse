@@ -16,24 +16,60 @@ and open the template in the editor.
         include "Menu.php";
         include "connectDB.php";
         
+		// Prise en charge des erreurs
+        verifQcm($link);
+        
         $idQCM = $_GET["idQCM"];
         ?>
-        
+                
         <h1>QCM <?php echo $idQCM ;?></h1>
-        
-        <?php 
-        // On récupère toutes les questions
-        afficheQuestions($link, fetchQuestions($link, $idQCM));
-        
+                
+       <?php 
+       	// On récupère toutes les questions
+       afficheQuestions($link, fetchQuestions($link, $idQCM));
+                
         if (isset($_SESSION["msg"])) {
-            echo $_SESSION["msg"];
-            $_SESSION["msg"] = NULL;
-        }
-        ?>
+ 			echo $_SESSION["msg"];
+  			$_SESSION["msg"] = NULL;
+     	  }
+  	  ?>
     </body>
 </html>
 
 <?php 
+
+
+	function verifQcm($linkDb) {
+		
+		// Si on accède à la page sans passer par la liste des QCM, rediriger vers celle-ci.
+		if( ! isset($_GET["idQCM"]) ) {
+			header( "Location:listeQCM.php");
+		}
+		
+		// Erreur et redirection vers la liste si le QCM n'existe pas
+		$sql = "SELECT `idQcm` FROM `question` WHERE `idQCM` LIKE ".$_GET["idQCM"];
+		
+		// Si la requête a réussi on récupère toutes les questions de la table
+		if ( $result = mysqli_query( $linkDb, $sql ) ) {
+		
+			// Compte le nombre de réponses
+			if (mysqli_num_rows($result) < 1) {
+				
+				$_SESSION["msg"] = "Erreur, le QCM demandé n'existe pas <br />";
+				header( "Location:listeQCM.php");
+			}
+			mysqli_free_result( $result ) ;
+		
+			//return $rows;
+		
+		}
+		
+		// Sinon affiche l'erreur
+			else {
+		
+				$_SESSION["msg"] = mysqli_error($linkDb) ;
+			}
+	}
 
 	function fetchQuestions($linkDb, $idQCM) {
 
