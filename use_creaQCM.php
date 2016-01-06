@@ -34,7 +34,7 @@ if ($_POST["nom"] != "" && isset($_SESSION["idPersonne"])) {
 
     if (mysqli_query($link, $sql)) {
         // On redirige le visiteur vers la page création de question
-        header("Location:./CreaQuestion.php");
+        header("Location:./visuCreaQCM.php");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($link);
     }
