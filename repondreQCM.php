@@ -106,7 +106,7 @@ and open the template in the editor.
 			// On parcourt chaque colonnes
 			foreach( $reponse as $cle => $champ ) {
 				
-				echo '<input type="checkbox" name = "rep'.$id.'" value="" />'.$champ.'<br />';
+				echo '<input type="checkbox" name = '.$id.'" value="" />'.$champ.'<br />';
 			}
 				
 			echo "<br />";
