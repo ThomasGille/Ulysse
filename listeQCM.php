@@ -64,9 +64,11 @@ and open the template in the editor.
 
 		//print_r($questions); echo "<br />";
 		
-		//On parcourt chaque ligne
+		//On affiche tous les QCM
 		foreach( $qcms as $indexLigne => $qcm ) {
-			echo '<a href="#">QCM '.$qcm["idQCM"].'<br />';
+			
+			// On passe l'id du QCM dans $_GET pour repondre au QCM
+			echo '<a href="repondreQCM.php?idQCM='.$qcm["idQCM"].'">QCM '.$qcm["idQCM"].'<br />';
 		
 		}
 	}

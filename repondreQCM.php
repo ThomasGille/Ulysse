@@ -16,7 +16,7 @@ and open the template in the editor.
         include "Menu.php";
         include "connectDB.php";
         
-        $idQCM = 2;
+        $idQCM = $_GET["idQCM"];
         ?>
         
         <h1>QCM <?php echo $idQCM ;?></h1>
