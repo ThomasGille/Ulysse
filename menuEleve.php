@@ -8,7 +8,7 @@ include_once "connectDB.php";
     <ul id="menu-demo2">
         <li><a href="#">Accueil</a>
 
-        <li><a href="#">Répondre QCM</a>
+        <li><a href="repondreQCM.php">Répondre QCM</a>
             
 
     </ul>
