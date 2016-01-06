@@ -11,21 +11,22 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        
         include "Var.php";
         include "Menu.php";
         include "connectDB.php";
+        ?>
+        
+        <form name="connect" method="post" action="use_creaQCM.php">
 
-        echo '<form name="connect" method="post" action="use_creaQCM.php">
-			
-			Entrez un nom : <input type="text" name="nom" value=""  required> <br/>
-			
-			<br />
-			<input type="submit" name="valider" value="Valider" />
-			<input type="reset" name="reset" />
-		</form>
-		<br>';
+            Entrez un nom : <input type="text" name="nom" value=""  required>
+            <br/>
+            <br />
+            <input type="submit" name="valider" value="Valider" />
+            <input type="reset" name="reset" />
+        </form>
+        <br>
 
+        <?php
         if (isset($_SESSION["msg"])) {
             echo $_SESSION["msg"];
             $_SESSION["msg"] = NULL;

@@ -17,6 +17,10 @@ and open the template in the editor.
         // je suis une patate amnésique
         $patate = NULL;
         $test = 1;
+        
+        
         ?>
+        
+        
     </body>
 </html>
