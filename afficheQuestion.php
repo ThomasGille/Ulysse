@@ -56,7 +56,17 @@ and open the template in the editor.
 	function afficheQuestions($questions) {
 
 		//print_r($questions);
-				
+		// On parcourt chaque lignes
+		foreach( $questions as $id => $question ) {
+			
+			// On parcourt chaque colonnes
+			foreach( $question as $cle => $champ ) {
+				echo $champ." ";								
+			}
+			
+			echo "<br />";
+		}
+		
 
 	}
 ?>
