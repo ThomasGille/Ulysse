@@ -11,15 +11,15 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-	        // put your code here
-        
-                include "Var.php";
-                include "Menu.php";
-                include "connectDB.php";
-	        // je suis une patate amnésique
-	        $patate=NULL;
-	        $test=1;
-       
+        // On démarre la session
+        session_start();
+        // put your code here
+
+        include "Menu.php";
+        include "connectDB.php";
+        // je suis une patate amnésique
+        $patate = NULL;
+        $test = 1;
         ?>
     </body>
 </html>
