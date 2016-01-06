@@ -8,6 +8,7 @@
 <?php
 include_once 'CryptageMdp.php';
 include_once 'connectDB.php';
+include_once 'OuvertureSession.php';
 
 
 
@@ -44,11 +45,13 @@ if ($Crypt!= null){
             $admin = $pswd = mysqli_fetch_array($req);
             
             if ($admin[0] == '1'){
-                 header('Location: menuProf.php');      
+                Session($idPers[0]);
+                header('Location: menuProf.php');      
 
             }
             else{
-             header('Location: menuEleve.php');      
+                Session($idPers[0]);
+                header('Location: menuEleve.php');      
             }
           
         }else{
