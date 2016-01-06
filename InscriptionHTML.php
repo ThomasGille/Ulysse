@@ -13,7 +13,7 @@
 
 
     <body>
-        <p> "coucou" </p>
+
         <h4>Connexion</h4>
         <form id="form" method="post" action="GestionDroit.php">
             <fieldset>
