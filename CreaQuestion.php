@@ -10,13 +10,8 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <h1>Ceci est un futur menu de folie</h1>
         <?php
-            
+        // put your code here
         ?>
-        <a href="index.php">Racine</a><br />
-        <a href=".php">Login</a><br />
-        <a href="CreaQCM.php">Création QCM</a><br />
-        <a href="logout.php">Logout</a><br />
     </body>
 </html>

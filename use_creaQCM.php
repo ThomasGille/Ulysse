@@ -8,6 +8,7 @@
 session_start();
 include "Var.php";
 include "connectDB.php";
+include fonction.php;
 
 $_SESSION["idPersonne"] = "1000";
 //temporaire en attendant les sessions et les users
@@ -19,11 +20,7 @@ if ($_POST["nom"] != "" && isset($_SESSION["idPersonne"])) {
     // on crée la requête SQL
     $sql = 'SELECT count(`idQCM`) as compte FROM `qcm` where `NomQCM` like \'' . $_POST["nom"] . '\'';
 
-    // on envoie la requête
-    $req = mysqli_query($link, $sql) or die('Erreur SQL !<br>' . $sql . '<br>' . mysql_error());
-
-    // on recupere la ligne 0 du resultat dans $data
-    $data = mysqli_fetch_assoc($req);
+    $data=select();
 
     if ($data['compte'] != 0) {
         $_SESSION['msg'] = "Nom déja utilisée";
@@ -31,18 +28,19 @@ if ($_POST["nom"] != "" && isset($_SESSION["idPersonne"])) {
     }
 
     $sql = "INSERT INTO qcm VALUES (NULL, \"" . $_SESSION["idPersonne"] . "\", \"" . $_POST["nom"] . "\");";
-    echo $sql;
+    //echo $sql;
 
     if (mysqli_query($link, $sql)) {
-        echo "New record created successfully";
-        //$_SESSION['msg'] = "Compte crée avec succès";
-        // On redirige le visiteur vers la page d'accueil
-        //header("Location:./.php");
+        // On redirige le visiteur vers la page création de question
+        header("Location:./CreaQuestion.php");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($link);
     }
+    $sql ="SELECT idQCM as id FROM `qcm` where idPersonne like 1000 ORDER BY `qcm`.`idQCM` DESC limit 1";
+    $data2=select($sql);
+    
+    
 } else {
-    echo 'pims';
     $_SESSION["msg"] = "Probleme nom manquant";
     header("Location:./CreaQCM.php");
 }
