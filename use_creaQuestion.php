@@ -64,5 +64,5 @@ if (mysqli_query($link, $sql)) {
 }
 
 // On redirige le visiteur vers la page création de question
-header("Location:./visuCreationQCM.php");
+header("Location:./visuCreaQCM.php");
 $_SESSION["msg"]="Question ajoutée!";

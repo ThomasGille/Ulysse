@@ -49,6 +49,6 @@ if ($_POST["nom"] != "" && isset($_SESSION["idPersonne"])) {
     //echo $data2['id'];
     
 } else {
-    $_SESSION["msg"] = "Probleme nom manquant";
+    $_SESSION["msg"] = "Probleme: nom manquant";
     header("Location:./CreaQCM.php");
 }
