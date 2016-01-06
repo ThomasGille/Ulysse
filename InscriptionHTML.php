@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 
 <!DOCTYPE HTML>
 
@@ -16,15 +13,16 @@ session_start();
 
 
     <body>
+
         <h4>Connexion</h4>
-        <form id="contact-form" method="post" action="connexion.php">
+        <form id="form" method="post" action="GestionDroit.php">
             <fieldset>
-                <label><input name="mail" value="Login" onBlur="if (this.value == '')
+                <label><input name="id" value="Login" onBlur="if (this.value == '')
                             this.value = 'Login'" onFocus="if (this.value == 'Login')
                                         this.value = ''" required /></label>
                 <br>
                 <p>Mot de Passe</p>
-                <label><input type="password" name="MDP" value="password" onBlur="if (this.value == '')
+                <label><input type="password" name="mdp" value="password" onBlur="if (this.value == '')
                             this.value = 'password'" onFocus="if (this.value == 'password')
                                         this.value = ''" required /></label>
                 <br><br>
@@ -32,4 +30,5 @@ session_start();
             </fieldset> 
         </form>
     </article>
+
 </body>

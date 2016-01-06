@@ -24,4 +24,4 @@ and open the template in the editor.
         
     </body>
 </html>
-<?php header ('Location: menuProf.php'); ?>
+<?php header ('Location: InscriptionHTML.php'); ?>
