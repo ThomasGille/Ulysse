@@ -16,8 +16,14 @@ and open the template in the editor.
         include "Menu.php";
         include "connectDB.php";
         
+        $idQCM = 2;
+        ?>
+        
+        <h1>QCM <?php echo $idQCM ;?></h1>
+        
+        <?php 
         // On récupère toutes les questions
-        afficheQuestions($link, fetchQuestions($link, 2));
+        afficheQuestions($link, fetchQuestions($link, $idQCM));
         
         if (isset($_SESSION["msg"])) {
             echo $_SESSION["msg"];
