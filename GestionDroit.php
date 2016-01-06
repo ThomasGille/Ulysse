@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -32,17 +33,18 @@ if ($Crypt != null){
         // 4. Verification $MDPHash == $Crypt ?
         if ($MDPHash == $Crypt){
             //5. Verification si Personne est prof ou élève
+            $requete="SELECT admin FROM personne WHERE idPersonne = $idPers ";
+            $admin = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
             
-            // 5.affichage du bon menu
+            if ($admin == '1'){
+                //accès menu prof
+            }
+            else{
+                //accès menu élève
+            }
+          
         }else{
             echo "Erreur : MDP incorrect";
         }
     }
-    
-    if ($req == $idPers){
-        
-    }
-    
-    
-}
-
+  }
