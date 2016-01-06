@@ -1,46 +1,54 @@
 
 <?php
-session_start();
+    session_start();
+?>
+<html>
+    <meta charset="UTF-8">
+</html>
 
+<?php
 include_once 'CryptageMdp.php';
-include_once 'connectBD.php';
+include_once 'connectDB.php';
 
 
 
+$idPers= $_POST['id'];
+$pswd = $_POST['mdp'];
 
 
-$idPers = $_POST["id"];
+$Crypt = Cryptage($pswd);
 
-
-if ($Crypt != null){
+if ($Crypt!= null){
     
     // 1. Personne dans BD ?? 
     $requete="SELECT idPersonne FROM personne WHERE idPersonne = $idPers";
     $reqID = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
-    
-    if (reqID == null){
+    $idPers = mysqli_fetch_array($reqID);
+
+    if ($idPers[0] == null){
         echo "Erreur : personne inexistante / ID erroné";
     }else{
         // si etape 1. vrai : 
         // 
         // 2. Récupération Mdp de la personne
-    $requete="SELECT Mdp FROM mdp WHERE idPersonne = $idPers ";
-    $MDPHash = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
-    
-        // 3. Cryptage Mdp entré en connexion
-        $Crypt = Cryptage($_POST["mdp"]);
+        $requete="SELECT Mdp FROM ulysse.mdp WHERE idPersonne = $idPers[0] ";
+        $MDPHash = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
+        $pswd = mysqli_fetch_array($MDPHash);
         
-        // 4. Verification $MDPHash == $Crypt ?
-        if ($MDPHash == $Crypt){
+        
+
+        // 4. Verification Password
+        if ($pswd[0]== $Crypt){
             //5. Verification si Personne est prof ou élève
-            $requete="SELECT admin FROM personne WHERE idPersonne = $idPers ";
-            $admin = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
+            $requete="SELECT admin FROM personne WHERE idPersonne = $idPers[0] ";
+            $req = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
+            $admin = $pswd = mysqli_fetch_array($req);
             
-            if ($admin == '1'){
-                //accès menu prof
+            if ($admin[0] == '1'){
+                echo "accès menu prof";
             }
             else{
-                //accès menu élève
+                echo "accès menu élève";
             }
           
         }else{
@@ -48,3 +56,4 @@ if ($Crypt != null){
         }
     }
   }
+
