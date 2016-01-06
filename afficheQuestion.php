@@ -16,7 +16,9 @@ and open the template in the editor.
         include "Menu.php";
         include "connectDB.php";
 
-        
+        // On récupère toutes les questions
+        $questions = fetchQuestions($link);
+        afficheQuestions($questions);
 
         if (isset($_SESSION["msg"])) {
             echo $_SESSION["msg"];
@@ -25,3 +27,46 @@ and open the template in the editor.
         ?>
     </body>
 </html>
+
+<?php 
+
+	function fetchQuestions($id) {
+
+		$sql = "SELECT * FROM `question`";
+		
+		// Si la requête a réussi on récupère toutes les questions de la table
+		if ( $result = mysqli_query( $id, $sql ) ) {
+				
+			$rows = mysqli_fetch_all( $result, MYSQLI_ASSOC ) ;
+			mysqli_free_result( $result ) ;
+		
+		}
+		
+		// Sinon affiche l'erreur
+		else {
+
+			echo mysqli_error($id) ; echo '<br />' ;
+		}
+		
+		return $rows;
+		
+	}
+	
+	// On passe un tableau de question qui sont affiché
+	function afficheQuestions($questions) {
+
+		//print_r($questions);
+		// On parcourt chaque lignes
+		foreach( $questions as $id => $question ) {
+			
+			// On parcourt chaque colonnes
+			foreach( $question as $cle => $champ ) {
+				echo $champ." ";								
+			}
+			
+			echo "<br />";
+		}
+		
+
+	}
+?>
