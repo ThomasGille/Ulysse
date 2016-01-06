@@ -17,8 +17,7 @@ and open the template in the editor.
         include "connectDB.php";
         
         // On récupère toutes les questions
-        //afficheQuestions(fetchQuestions($link, 1));
-        afficheReponses(fetchReponses($link, 2) );
+        afficheQuestions($link, fetchQuestions($link, 2));
         
         if (isset($_SESSION["msg"])) {
             echo $_SESSION["msg"];
@@ -30,9 +29,11 @@ and open the template in the editor.
 
 <?php 
 
-	function fetchQuestions($linkDb, $idQuestion) {
+	function fetchQuestions($linkDb, $idQCM) {
 
-		$sql = "SELECT * FROM `question` WHERE `idQuestion` LIKE ".$idQuestion;
+		//print_r($reponses) ; echo '<br />';
+		
+		$sql = "SELECT * FROM `question` WHERE `idQCM` LIKE ".$idQCM;
 		
 		// Si la requête a réussi on récupère toutes les questions de la table
 		if ( $result = mysqli_query( $linkDb, $sql ) ) {
@@ -45,7 +46,7 @@ and open the template in the editor.
 		// Sinon affiche l'erreur
 		else {
 
-			echo mysqli_error($id) ; echo '<br />' ;
+			echo mysqli_error($linkDb) ; echo '<br />' ;
 		}
 		
 		return $rows;
@@ -65,6 +66,8 @@ and open the template in the editor.
 			$rows = mysqli_fetch_all( $result, MYSQLI_ASSOC ) ;
 			mysqli_free_result( $result ) ;
 		
+			return $rows;
+		
 		}
 		
 		// Sinon affiche l'erreur
@@ -73,22 +76,27 @@ and open the template in the editor.
 			echo mysqli_error($linkDb) ; echo '<br />' ;
 		}
 		
-		return $rows;
 		
 	}
 	
 	// On passe un tableau de question qui sont affiché
-	function afficheQuestions($questions) {
+	function afficheQuestions($linkDb, $questions) {
 
-		
 		//print_r($questions);
 		// On parcourt chaque lignes
 		foreach( $questions as $id => $question ) {
 			
 			// On parcourt chaque colonnes
 			foreach( $question as $cle => $champ ) {
-				echo $champ." ";								
+				echo $champ." ";						
 			}
+			
+			echo "<br />";
+			
+			//echo "id = ".$id."<br />";
+			
+			//fetchReponses($linkDb, $id)
+			afficheReponses(fetchReponses($linkDb, 2) );
 			
 			echo "<br />";
 		}
@@ -98,7 +106,7 @@ and open the template in the editor.
 	
 	function afficheReponses($reponses) {
 	
-		print_r($reponses) ; echo '<br />';
+		//print_r($reponses) ; echo '<br />';
 		
 		// On parcourt chaque lignes
 		foreach( $reponses as $id => $reponse ) {
@@ -111,7 +119,6 @@ and open the template in the editor.
 				
 			echo "<br />";
 		}
-	
 	
 	}
 ?>
