@@ -5,10 +5,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-session_start();
+
 include "Var.php";
 include "connectDB.php";
-include fonction.php;
 
 $_SESSION["idPersonne"] = "1000";
 //temporaire en attendant les sessions et les users
@@ -20,7 +19,10 @@ if ($_POST["nom"] != "" && isset($_SESSION["idPersonne"])) {
     // on crée la requête SQL
     $sql = 'SELECT count(`idQCM`) as compte FROM `qcm` where `NomQCM` like \'' . $_POST["nom"] . '\'';
 
-    $data=select();
+    // on envoie la requête
+    $req = mysqli_query($link, $sql) or die('Erreur SQL !<br>' . $sql . '<br>' . mysql_error());
+    // on recupere la ligne 0 du resultat dans $data
+    $data = mysqli_fetch_assoc($req);
 
     if ($data['compte'] != 0) {
         $_SESSION['msg'] = "Nom déja utilisée";
@@ -36,9 +38,15 @@ if ($_POST["nom"] != "" && isset($_SESSION["idPersonne"])) {
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($link);
     }
-    $sql ="SELECT idQCM as id FROM `qcm` where idPersonne like 1000 ORDER BY `qcm`.`idQCM` DESC limit 1";
-    $data2=select($sql);
-    
+    $sql ="SELECT idQCM as id FROM `qcm` where idPersonne like \"" . $_SESSION["idPersonne"] . "\" ORDER BY `qcm`.`idQCM` DESC limit 1";
+    //echo $sql;
+    // on envoie la requête
+    $req = mysqli_query($link, $sql) or die('Erreur SQL !<br>' . $sql . '<br>' . mysql_error());
+    // on recupere la ligne 0 du resultat dans $data
+    $data2 = mysqli_fetch_assoc($req);
+    //print_r($data2);
+    $_SESSION["idQCM"]=$data2['id'];
+    //echo $data2['id'];
     
 } else {
     $_SESSION["msg"] = "Probleme nom manquant";

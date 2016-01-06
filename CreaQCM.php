@@ -16,7 +16,7 @@ and open the template in the editor.
         include "connectDB.php";
         ?>
         
-        <form name="connect" method="post" action="use_creaQCM.php">
+        <form name="qcm" method="post" action="use_creaQCM.php">
 
             Entrez un nom : <input type="text" name="nom" value=""  required>
             <br/>
