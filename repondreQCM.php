@@ -82,23 +82,25 @@ and open the template in the editor.
 	// On passe un tableau de question qui sont affiché
 	function afficheQuestions($linkDb, $questions) {
 
-		//print_r($questions);
+		//print_r($questions); echo "<br />";
 		// On parcourt chaque lignes
+		
+		$numQuestion = 1;
 		foreach( $questions as $id => $question ) {
-			
-			// On parcourt chaque colonnes
-			foreach( $question as $cle => $champ ) {
-				echo $champ." ";						
-			}
-			
-			echo "<br />";
+
+			//echo "idQuestion = ".$question["idQuestion"]."<br />";
+		
+			echo "Question ".$numQuestion."<br />";
+			echo $question["enonceQuestion"]." "."<br />";
 			
 			//echo "id = ".$id."<br />";
 			
 			//fetchReponses($linkDb, $id)
-			afficheReponses(fetchReponses($linkDb, 2) );
+			afficheReponses(fetchReponses($linkDb, $question["idQuestion"]) );
 			
 			echo "<br />";
+			
+			$numQuestion++;
 		}
 		
 
