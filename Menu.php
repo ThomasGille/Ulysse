@@ -14,5 +14,7 @@ and open the template in the editor.
         <?php
             
         ?>
+        <a href="CreaQCM.php">Création QCM</a><br />
+        <a href="logout.php">Logout</a><br />
     </body>
 </html>
