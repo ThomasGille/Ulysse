@@ -17,8 +17,7 @@ and open the template in the editor.
         include "connectDB.php";
 
         // On récupère toutes les questions
-        $questions = fetchQuestions($link);
-        afficheQuestions($questions);
+        afficheQuestions(fetchQuestions($link, 1));
 
         if (isset($_SESSION["msg"])) {
             echo $_SESSION["msg"];
@@ -30,12 +29,12 @@ and open the template in the editor.
 
 <?php 
 
-	function fetchQuestions($id) {
+	function fetchQuestions($linkDb, $idQuestion) {
 
-		$sql = "SELECT * FROM `question`";
+		$sql = "SELECT * FROM `question` WHERE `idQuestion` LIKE ".$idQuestion;
 		
 		// Si la requête a réussi on récupère toutes les questions de la table
-		if ( $result = mysqli_query( $id, $sql ) ) {
+		if ( $result = mysqli_query( $linkDb, $sql ) ) {
 				
 			$rows = mysqli_fetch_all( $result, MYSQLI_ASSOC ) ;
 			mysqli_free_result( $result ) ;
@@ -55,6 +54,7 @@ and open the template in the editor.
 	// On passe un tableau de question qui sont affiché
 	function afficheQuestions($questions) {
 
+		
 		//print_r($questions);
 		// On parcourt chaque lignes
 		foreach( $questions as $id => $question ) {
