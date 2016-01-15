@@ -7,7 +7,8 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <link rel="stylesheet" type="text/css" href="style2.css" />
+        <title>Création QCM</title>
     </head>
     <body>
 
@@ -89,12 +90,33 @@ and open the template in the editor.
 		foreach( $qcms as $indexLigne => $question ) {
 			
 			// On passe l'id du QCM dans $_GET pour repondre au QCM
-			echo $question["enonceQuestion"].'<br />';
+                    ?>
+		<div class="question">	
+                    <?php 
+                    echo $question["enonceQuestion"].'<br />';
+                    ?>
+                </div>
+                <?php
                         $_SESSION["idQuestion"]=$question["idQuestion"];
                         
                         $rep = fetchReponses($link);
                         foreach( $rep as $indexLigne => $reponses ) {
-                            echo $reponses["enonceReponse"].'<br />';
+                ?>
+			
+                    <?php 
+                    if($reponses["juste"]==1){
+                        echo '<div class="True">';
+                        echo $reponses["enonceReponse"].'<br />';
+                        echo '</div>';
+                    }
+                    else {
+                        echo '<div class="False">';
+                        echo $reponses["enonceReponse"].'<br />';
+                        echo '</div>';
+                    }
+                    ?>
+                </div>
+                <?php
                         }
 		
 		}
