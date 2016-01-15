@@ -56,6 +56,7 @@ and open the template in the editor.
 				?>
 				<html>
 					<ul id="menu-demo2">
+						<li><a href="index.php">Acceuil</a><br/></li>
 						<li><a href="Login.php">Login</a><br/></li>
 					</ul>
 				</html>

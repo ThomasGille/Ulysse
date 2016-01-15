@@ -17,14 +17,11 @@
         <h4>Connexion</h4> 
         <form id="form" method="post" action="GestionDroit.php">
             <fieldset>
-                <label><input name="id" value="Login" onBlur="if (this.value == '')
-                            this.value = 'Login'" onFocus="if (this.value == 'Login')
-                                        this.value = ''" required /></label>
+			<p>Login</p>
+                <label><input type="number" name="id" value="" required /></label>
                 <br>
                 <p>Mot de Passe</p>
-                <label><input type="password" name="mdp" value="password" onBlur="if (this.value == '')
-                            this.value = 'password'" onFocus="if (this.value == 'password')
-                                        this.value = ''" required /></label>
+                <label><input type="password" name="mdp" value="password" required /></label>
                
 				<br><br>
                 <input type="submit">	
