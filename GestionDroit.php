@@ -1,15 +1,17 @@
 
 
+<?php
+include_once 'Var.php';
+include_once 'CryptageMdp.php';
+include_once 'connectDB.php';
+include_once 'OuvertureSession.php';
+?>
 
 <html>
     <meta charset="UTF-8">
 </html>
 
 <?php
-include_once 'CryptageMdp.php';
-include_once 'connectDB.php';
-include_once 'OuvertureSession.php';
-
 
 
 $idPers= $_POST['id'];
@@ -44,14 +46,21 @@ if ($Crypt!= null){
             $req = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
             $admin = $pswd = mysqli_fetch_array($req);
             
+           // 6. Recuperation de son nom
+			$requete="SELECT prenom FROM $dbname.personne WHERE idPersonne = $idPers[0]";
+			$reqID = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
+			$nomPers = mysqli_fetch_array($reqID);
+	
             if ($admin[0] == '1'){
-                Session($idPers[0]);
-                header('Location: menuProf.php');      
+                Session($idPers[0], $nomPers[0]);
+								
+                header('Location: index.php');      
 
             }
             else{
-                Session($idPers[0]);
-                header('Location: menuEleve.php');      
+                Session($idPers[0],$nomPers[0]);
+				
+                header('Location: index.php');      
             }
           
         }else{

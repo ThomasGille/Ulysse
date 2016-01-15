@@ -1,8 +1,10 @@
+
 <?php
+		include_once 'Var.php';
 
-
-function Session($idPers){
+function Session($idPers, $prenomPers){
     
-    $_SESSION['id'] = $idPers;
+    $_SESSION['idPersonne'] = $idPers;	
+	$_SESSION['prenomPersonne'] = $prenomPers;
 
 }

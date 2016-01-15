@@ -14,7 +14,7 @@
 
     <body>
 
-        <h4>Connexion</h4>
+        <h4>Connexion</h4> 
         <form id="form" method="post" action="GestionDroit.php">
             <fieldset>
                 <label><input name="id" value="Login" onBlur="if (this.value == '')
@@ -25,7 +25,8 @@
                 <label><input type="password" name="mdp" value="password" onBlur="if (this.value == '')
                             this.value = 'password'" onFocus="if (this.value == 'password')
                                         this.value = ''" required /></label>
-                <br><br>
+               
+				<br><br>
                 <input type="submit">	
             </fieldset> 
         </form>

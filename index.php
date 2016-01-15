@@ -7,17 +7,19 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
+		<link rel="stylesheet" href="style.css" /> 
         <title></title>
     </head>
     <body>
         <?php
 
-        include "Menu.php";
-        include "connectDB.php";//inclut les variables
-        // je suis une patate amnésique
-        $patate = NULL;
-        $test = 1;
         
+        include "connectDB.php";//inclut les variables
+		include "Menu.php";
+		
+		
+		
+
         
         ?>
         

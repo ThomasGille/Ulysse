@@ -1,3 +1,7 @@
+<?php
+		include_once 'Var.php';
+		?>
+		
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -7,16 +11,64 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
+		 <link rel="stylesheet" href="style.css" /> 
         <title></title>
     </head>
-    <body>
-        <h1>Ceci est un futur menu de folie</h1>
-        <?php
-            
-        ?>
-        <a href="index.php">Racine</a><br />
-        <a href="InscriptionHTML.php">Login</a><br />
-        <a href="CreaQCM.php">Création QCM</a><br />
-        <a href="logout.php">Logout</a><br />
+		
+   
+        
+		
+		<?php
+
+			if (isset($_SESSION ["idPersonne"])){
+				if ($_SESSION ["idPersonne"] >=1000){
+					?>
+					<html> 
+						<ul id="menu-demo2">
+							<li><a href="#">Accueil</a></li>
+							<li><a href="#">QCM</a>
+								<ul>
+									<li><a href="CreaQCM.php">Création</a></li>
+									<li><a href="#">Consultation</a></li></li>
+									
+								</ul>
+							<li><a href="Logout.php">Logout</a></li>
+							<li><a href="index.php"><?php echo $_SESSION['prenomPersonne'] ?></a></li>
+						</ul>
+					</html>
+				<?php
+				}
+				else{
+				?>
+				<html>
+					<ul id="menu-demo2">
+						<li><a href="#">Accueil</a></li>
+						<li><a href="repondreQCM.php">Répondre QCM</a></li>
+						<li><a href="Logout.php">Logout</a></li>
+						<li><a href="index.php"><?php echo  $_SESSION['prenomPersonne'] ?></a></li>
+					</ul>
+					
+				</html>
+			<?php
+				}
+			}
+			else{
+				?>
+				<html>
+					<ul id="menu-demo2">
+						<li><a href="Login.php">Login</a><br/></li>
+					</ul>
+				</html>
+			<?php
+			}			
+			?>
+		
+        
+		
+	 <body>
+		<p> 
+		Page d'acceuil avec plein de trucs ecrits,<br> qui sont super cool <br>et super interessants !! <br>
+		</p>
+	 
     </body>
 </html>
