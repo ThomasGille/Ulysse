@@ -20,7 +20,7 @@ and open the template in the editor.
         <?php
         
             $qcms = fetchQuestion($link);
-            //var_dump($qcms);
+            var_dump($qcms);
             //afficheQcm($qcms);  
             afficheQuestion($qcms,$link);
         ?>
