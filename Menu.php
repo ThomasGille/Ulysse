@@ -15,7 +15,7 @@ and open the template in the editor.
             
         ?>
         <a href="index.php">Racine</a><br />
-        <a href=".php">Login</a><br />
+        <a href="InscriptionHTML.php">Login</a><br />
         <a href="CreaQCM.php">Création QCM</a><br />
         <a href="logout.php">Logout</a><br />
     </body>
