@@ -25,8 +25,8 @@ and open the template in the editor.
             afficheQuestion($qcms,$link);
         ?>
         <br />
-        <a href="CreaQuestion.php">Ajouter une question</a><br />
-        <a href="index.php">Sauvegarder et partir</a><br />
+        <form method="link" action="CreaQuestion.php"> <input type="submit" value="Ajouter une question"></form>
+        <form method="link" action="index.php"> <input type="submit" value="Sauvegarder et partir"></form>
     </body>
     
 </html>
@@ -83,9 +83,6 @@ and open the template in the editor.
 	
 	// On passe un tableau de question qui sont affiché
 	function afficheQuestion($qcms,$link) {
-
-		//print_r($questions); echo "<br />";
-		
 		//On affiche tous les QCM
 		foreach( $qcms as $indexLigne => $question ) {
 			
@@ -118,7 +115,6 @@ and open the template in the editor.
                 </div>
                 <?php
                         }
-		
 		}
 	}
 ?>
