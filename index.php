@@ -24,4 +24,4 @@ and open the template in the editor.
         
     </body>
 </html>
-<?php header ('Location: InscriptionHTML.php'); ?>
+//<?php header ('Location: InscriptionHTML.php'); ?>
