@@ -12,9 +12,9 @@ and open the template in the editor.
     <body>
         <?php
         
-        include "Var.php";
+        include_once "Var.php";
         include "Menu.php";
-        include "connectDB.php";
+        include_once "connectDB.php";
         ?>
         
         <h1>QCM</h1>
