@@ -9,6 +9,7 @@ include_once 'OuvertureSession.php';
 
 <html>
     <meta charset="UTF-8">
+     <link rel="stylesheet" href="style2.css" /> 
 </html>
 
 <?php
@@ -82,5 +83,6 @@ $Crypt = Cryptage($pswd);
             }
         }
       }
+ 
 
 

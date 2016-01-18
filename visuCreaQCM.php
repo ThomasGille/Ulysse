@@ -17,17 +17,19 @@ and open the template in the editor.
             include "connectDB.php";
             echo $_SESSION["idQCM"];
             ?></h1>
+        <p><div id="texte">
         <?php
         
             $qcms = fetchQuestion($link);
-            var_dump($qcms);
+           // var_dump($qcms);
             //afficheQcm($qcms);  
             afficheQuestion($qcms,$link);
         ?>
         <br />
         <form method="link" action="CreaQuestion.php"> <input type="submit" value="Ajouter une question"></form>
         <form method="link" action="index.php"> <input type="submit" value="Sauvegarder et partir"></form>
-    </body>
+        </div></p>
+        </body>
     
 </html>
 

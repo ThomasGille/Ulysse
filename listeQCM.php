@@ -19,7 +19,7 @@ and open the template in the editor.
         ?>
         
         <h1>QCM</h1>
-        
+        <p><div id="texte">
         <?php 
         // On récupère tous les QCM et on les affiches
         //print_r(fetchQcm($link));
@@ -36,11 +36,8 @@ and open the template in the editor.
         	$_SESSION["questionCourante"] = NULL;
         	$_SESSION["idQCM"] = NULL;
         }
-        ?>
-    </body>
-</html>
+        
 
-<?php 
 
 	function fetchQcm($linkDb) {
 
@@ -72,11 +69,19 @@ and open the template in the editor.
 		//print_r($questions); echo "<br />";
 		
 		//On affiche tous les QCM
+                
 		foreach( $qcms as $indexLigne => $qcm ) {
 			
 			// On passe l'id du QCM dans $_GET pour repondre au QCM
-			echo '<a href="repondreQCM.php?idQCM='.$qcm["idQCM"].'">QCM '.$qcm["idQCM"].'<br />';
+			echo '<a href="repondreQCM.php?idQCM='.$qcm["idQCM"].'">QCM '.$qcm["idQCM"].'<br /> ';
 		
 		}
+               
 	}
-?>
+
+        echo '</div></p>';
+        ?>
+    </body>
+        
+</html>
+<?php include "footer.php"; 

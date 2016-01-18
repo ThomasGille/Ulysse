@@ -73,3 +73,4 @@ if (isset($_SESSION ["idPersonne"])){
         echo" </table>";
     }
 }
+ include "footer.php"; 
