@@ -23,7 +23,7 @@ and open the template in the editor.
         // On récupère tous les QCM et on les affiches
         //print_r(fetchQcm($link));
         $qcms = fetchQcm($link);
-       // afficheQcm($qcms);      
+        afficheQcm($qcms);      
 
         if (isset($_SESSION["msg"])) {
             echo $_SESSION["msg"];
