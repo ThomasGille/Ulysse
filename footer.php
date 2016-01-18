@@ -1,14 +1,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Création QCM</title>
+        <title></title>
     </head>
     <body>
         <?php
         
-        include "Var.php";
-        include "Menu.php";
-        include "connectDB.php";
+        include_once "Var.php";
+        include_once "connectDB.php";
         ?>
         Projet Ulysse crée par Thomas GILLE, Juliette DILAS, Jonathan CHHAY, Gaëtan JAQUEMIN
     </body>
