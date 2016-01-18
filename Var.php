@@ -9,7 +9,7 @@
 // On démarre la session
 session_start();
 // params . inc . php
-$host = "iutbg-lamp.univ-lyon1.fr";
-$user = "p1407041";
-$password = "11407041";
-$dbname = "p1407041";
+$host="localhost" ;
+	$user="root" ;
+	$password=NULL ;
+	$dbname="test" ;
