@@ -31,7 +31,6 @@ background: black;
 }
 
 h5{
-
     padding:0;
     margin:0;
     list-style:none;
@@ -96,6 +95,12 @@ body{
 
 p{
     color : RGB(85,70,103);
+}
+p, .texte{
+    border-right: 1px solid RGB(85,70,103);
+    border-left: 1px solid RGB(85,70,103);
+    border-top: 1px solid RGB(85,70,103);
+    border-bottom: 1px solid RGB(85,70,103);
 }
 
 footer{

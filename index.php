@@ -16,10 +16,11 @@ and open the template in the editor.
 	include "Menu.php";
 
         ?>
-        <p> 
-            Bienvenu sur notre site de QCM<br>
+        <p>
+           <div id="texte">
+            Bienvenu sur notre site de QCM<br><br><br><br><br><br><br><br><br><br><br><br>
         
-            
+           </div>
         </p>
          <?php
         include "footer.php";	

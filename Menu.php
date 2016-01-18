@@ -32,7 +32,7 @@ and open the template in the editor.
                                                         <li><a href="listeQCM.php">Consultation</a></li></li>
 
                                                 </ul>
-                                        <li><a href="affichage_resultats.php">Resultats</a>
+                                        <li><a href="affichage_resultats.php">Resultats</a></li>
                                         <li><a href="Logout.php">Logout</a></li>
                                         <li><a href=""><?php echo $_SESSION['prenomPersonne'] ?></a></li>
                                 </ul>
@@ -45,7 +45,7 @@ and open the template in the editor.
                         <ul id="menu-demo2">
                                 <li><a href="index.php">Accueil</a></li>
                                 <li><a href="repondreQCM.php">Répondre QCM</a></li>
-                                <li><a href="affichage_resultats.php">Resultats</a>
+                                <li><a href="affichage_resultats.php">Resultats</a></li>
                                 <li><a href="Logout.php">Logout</a></li>
                                 <li><a href=""><?php echo  $_SESSION['prenomPersonne'] ?></a></li>
                         </ul>

@@ -47,8 +47,8 @@ background-image:linear-gradient(to bottom, #729EBF 0%, #333A40 100%);
 
 #menu-demo2 li:nth-child(4){
 background-color: #268AG4;
-background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
-background-image:linear-gradient(to bottom, #729EBF 0%, #333A40 100%);
+background-image: -webkit-linear-gradient(top, RGB(163,40,215) 0%, RGB(71,18,95) 100%);
+background-image:linear-gradient(to bottom,RGB(163,40,215) 0%, RGB(71,18,95) 100%);
 }
 
 #menu-demo2 li:nth-child(3){
@@ -71,8 +71,8 @@ background:#333A40;
 #menu-demo2 li:nth-child(3) li{
 background:#9F391A;
 }
-#menu-demo2 li:nth-child(3) li{
-background:#9F234A;
+#menu-demo2 li:nth-child(4) li{
+background:RGB(71,18,95);
 }
 #menu-demo2 li:last-child li{
 background:#677F35;
@@ -86,6 +86,9 @@ background:#65537A;
 background:#729EBF;
 }
 #menu-demo2 li:nth-child(3):hover, #menu-demo2 li:nth-child(3) li:hover{
+background:#F6AD1A;
+}
+#menu-demo2 li:nth-child(4):hover, #menu-demo2 li:nth-child(3) li:hover{
 background:#F6AD1A;
 }
 #menu-demo2 li:last-child:hover, #menu-demo2 li:last-child li:hover{
