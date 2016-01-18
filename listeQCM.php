@@ -13,7 +13,7 @@ and open the template in the editor.
         <?php
         
         include_once "Var.php";
-        //include "Menu.php";
+        include "Menu.php";
         include_once "connectDB.php";
         ?>
         
