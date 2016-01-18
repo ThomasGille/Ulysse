@@ -30,7 +30,7 @@ height:100px;
 background: black;
 }
 
-.h5{
+h5{
 
     padding:0;
     margin:0;
@@ -39,104 +39,50 @@ background: black;
 
 }
 
+h4{
+    font: 20px/1 Time New Roman;
+    font-weight: bold;
+    color: RGB(85,70,103);
+}
 //----- Tableau Résultats ----------
-/*strong {
-	font-weight: bold; 
-}
-
-em {
-	font-style: italic; 
-}
-
 table {
-	 
-	background: rgb(255,255,255);
+        margin : 0 auto; 
 	border-collapse: separate;
-	box-shadow: inset 0 1px 0 #fff;
-	font-size: 25px;
-	line-height: 24px;
-	margin: 30px auto;
-	text-align: left;
+	font-size: 15px;
+	line-height: 20px;
+	text-align: center;
 	width: 800px;
 }	
 
 th {
-	font: 25px/1 Time New Roman;
-	background: url(http://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(rgb(225,173,100),rgb(230,195,130));
-	border-left: 1px solid #555;
-	border-right: 1px solid #777;
-	border-top: 1px solid #555;
-	border-bottom: 1px solid #333;
-	box-shadow: inset 0 1px 0 #999;
-	color: RGB(0,0,0);
+	font: 15px/1 Time New Roman;
+        font-style: strong;
+	border-left: 1px solid RGB(85,70,103);
+	border-right: 1px solid RGB(85,70,103);
+	border-top: 1px solid RGB(85,70,103);
+	border-bottom: 1px solid RGB(85,70,103);
+	box-shadow: inset 0 1px 0 RGB(85,70,103);
+	color: RGB(85,70,103);
 	font-weight: bold;
 	padding: 10px 15px;
 	position: relative;
-	text-shadow: 0 1px 0 #000;	
-	
-}
-th a{
-	text-decoration: none;
-	color : RGB(255,255,255);
 }
 
-th:after {
-	background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
-	content: '';
-	display: block;
-	height: 25%;
-	left: 0;
-	margin: 1px 0 0 0;
-	position: absolute;
-	top: 25%;
-	width: 100%;
-}
-
-th:first-child {
-	border-left: 1px solid #777;	
-	box-shadow: inset 1px 1px 0 #999;
-}
-
-th:last-child {
-	box-shadow: inset -1px 1px 0 #999;
-}
 
 td {
-	border-right: 1px solid black;
-	border-left: 1px solid black;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
+	border-right: 1px solid RGB(85,70,103);
+	border-left: 1px solid RGB(85,70,103);
+	border-top: 1px solid RGB(85,70,103);
+	border-bottom: 1px solid RGB(85,70,103);
 	padding: 10px 15px;
 	position: relative;
-	transition: all 300ms;
-	font: 30px/1 Time New Roman;
+	
+	font: 15px/1 Time New Roman;
 }
 
-td:first-child {
-	box-shadow: inset 1px 0 0 black;
-}	
 
-td:last-child {
-	border-right: 1px solid black;
-	box-shadow: inset -1px 0 0 black;
-}	
 
 tr {
-	background: rgb(255,255,255) url(http://jackrugile.com/images/misc/noise-diagonal.png);	
+	background: RGB(255,255,255);	
 }
 
-tr:nth-child(odd) td {
-	background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);	
-}
-
-tr:last-of-type td {
-	box-shadow: inset 0 -1px 0 #fff; 
-}
-
-tr:last-of-type td:first-child {
-	box-shadow: inset 1px -1px 0 #fff;
-}	
-
-tr:last-of-type td:last-child {
-	box-shadow: inset -1px -1px 0 #fff;
-}*/

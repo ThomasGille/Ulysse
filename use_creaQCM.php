@@ -48,6 +48,6 @@ if ($_POST["nom"] != "" && $_SESSION["idPersonne"] >=1000) {
     //echo $data2['id'];
     
 } else {
-    $_SESSION["msg"] = "Probleme: nom manquant";
+    $_SESSION["msg"] = "Vous n'avez pas les droit pour effectuer cette action";
     header("Location:./CreaQCM.php");
 }
