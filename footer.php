@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Création QCM</title>
+        <title></title>
     </head>
     <body>
         <?php

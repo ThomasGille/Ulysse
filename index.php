@@ -8,23 +8,17 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
 		<link rel="stylesheet" href="style.css" /> 
-        <title></title>
+        <title>Projet Ulysse</title>
     </head>
     <body>
         <?php
-
-        
         include_once "connectDB.php";//inclut les variables
 	include "Menu.php";
-	
-		
-		
 
-        
         ?>
         <p> 
-            Page d'acceuil avec plein de trucs ecrits,<br>
-            qui sont super cool <br>et super interessants !! <br>
+            Bienvenu sur notre site de QCM<br>
+        
             
         </p>
          <?php
