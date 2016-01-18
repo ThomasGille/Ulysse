@@ -18,6 +18,7 @@ and open the template in the editor.
         ?>
         
         <h1> Création QCM </h1>
+        <p><div id="texte">
         <form name="qcm" method="post" action="use_creaQCM.php">
 
             Entrez un nom : <input type="text" name="nom" value=""  required>
@@ -34,5 +35,7 @@ and open the template in the editor.
             $_SESSION["msg"] = NULL;
         }
         ?>
+        </div></p>
     </body>
 </html>
+<?php include "footer.php"; 

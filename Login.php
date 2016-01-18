@@ -14,13 +14,13 @@
 
     <body>
 
-        <h4>Connexion</h4> 
+        <h1>Connexion</h1> 
         <form id="form" method="post" action="GestionDroit.php">
             <fieldset>
-			<p>Login</p>
+			<h4>Login</h4>
                 <label><input type="number" name="id" value="" required /></label>
                 <br>
-                <p>Mot de Passe</p>
+                <h4>Mot de Passe</h4>
                 <label><input type="password" name="mdp" value="password" required /></label>
                
 				<br><br>
@@ -30,3 +30,4 @@
     </article>
 
 </body>
+<?php include "footer.php"; 

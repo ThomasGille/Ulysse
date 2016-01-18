@@ -65,11 +65,5 @@ and open the template in the editor.
         <?php
         }			
         ?>
-		
-        
-		
-	 <body>
-		
-	 
-    </body>
+
 </html>
