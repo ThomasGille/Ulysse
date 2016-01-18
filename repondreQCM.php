@@ -135,8 +135,7 @@ and open the template in the editor.
 		
 		//$_SESSION["questionCourante"] = 1;
 		
-		// Si on est en cours du QCM
-		//echo isset($_GET["questionCourante"]);
+		// On prend le compteur à la question en cours
 		if( isset($_SESSION["questionCourante"])) {
 			$numQuestion = $_SESSION["questionCourante"];
 
@@ -144,11 +143,20 @@ and open the template in the editor.
 			//unset($_GET["questionCourante"]);
 		}
 		
-		// On remet à zéro si on vien de commencer à répondre au QCm
+		// On remet à le compteur à zéro si on vien de commencer à répondre au QCM
 		else {
 			$_SESSION["questionCourante"] = 0;
 			$numQuestion = $_SESSION["questionCourante"];
 		}
+		
+		/*
+		// Si fin du QCM
+		if( isset($questions["$numQuestion"]) ) {
+			
+			
+		}
+		*/
+		
 		
 		echo $numQuestion."<br />";
 		
