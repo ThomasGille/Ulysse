@@ -15,7 +15,7 @@ and open the template in the editor.
 
         
         include "connectDB.php";//inclut les variables
-		include "Menu.php";
+	include "Menu.php";
 		
 		
 		
