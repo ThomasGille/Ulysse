@@ -18,51 +18,51 @@ and open the template in the editor.
    
         
 		
-		<?php
+<?php
 
-			if (isset($_SESSION ["idPersonne"])){
-				if ($_SESSION ["idPersonne"] >=1000){
-					?>
-					<html> 
-						<ul id="menu-demo2">
-							<li><a href="#">Accueil</a></li>
-							<li><a href="#">QCM</a>
-								<ul>
-									<li><a href="CreaQCM.php">Création</a></li>
-									<li><a href="#">Consultation</a></li></li>
-									
-								</ul>
-							<li><a href="Logout.php">Logout</a></li>
-							<li><a href="index.php"><?php echo $_SESSION['prenomPersonne'] ?></a></li>
-						</ul>
-					</html>
-				<?php
-				}
-				else{
-				?>
-				<html>
-					<ul id="menu-demo2">
-						<li><a href="#">Accueil</a></li>
-						<li><a href="repondreQCM.php">Répondre QCM</a></li>
-						<li><a href="Logout.php">Logout</a></li>
-						<li><a href="index.php"><?php echo  $_SESSION['prenomPersonne'] ?></a></li>
-					</ul>
-					
-				</html>
-			<?php
-				}
-			}
-			else{
-				?>
-				<html>
-					<ul id="menu-demo2">
-						<li><a href="index.php">Acceuil</a><br/></li>
-						<li><a href="Login.php">Login</a><br/></li>
-					</ul>
-				</html>
-			<?php
-			}			
-			?>
+        if (isset($_SESSION ["idPersonne"])){
+                if ($_SESSION ["idPersonne"] >=1000){
+                        ?>
+                        <html> 
+                                <ul id="menu-demo2">
+                                        <li><a href="#">Accueil</a></li>
+                                        <li><a href="#">QCM</a>
+                                                <ul>
+                                                        <li><a href="CreaQCM.php">Création</a></li>
+                                                        <li><a href="listeQCM.php">Consultation</a></li></li>
+
+                                                </ul>
+                                        <li><a href="Logout.php">Logout</a></li>
+                                        <li><a href="index.php"><?php echo $_SESSION['prenomPersonne'] ?></a></li>
+                                </ul>
+                        </html>
+                <?php
+                }
+                else{
+                ?>
+                <html>
+                        <ul id="menu-demo2">
+                                <li><a href="#">Accueil</a></li>
+                                <li><a href="repondreQCM.php">Répondre QCM</a></li>
+                                <li><a href="Logout.php">Logout</a></li>
+                                <li><a href="index.php"><?php echo  $_SESSION['prenomPersonne'] ?></a></li>
+                        </ul>
+
+                </html>
+        <?php
+                }
+        }
+        else{
+                ?>
+                <html>
+                        <ul id="menu-demo2">
+                                <li><a href="index.php">Acceuil</a><br/></li>
+                                <li><a href="Login.php">Login</a><br/></li>
+                        </ul>
+                </html>
+        <?php
+        }			
+        ?>
 		
         
 		
