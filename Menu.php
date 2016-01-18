@@ -1,6 +1,6 @@
 <?php
 		include_once 'Var.php';
-		?>
+?>
 		
 <!DOCTYPE html>
 <!--
@@ -67,9 +67,7 @@ and open the template in the editor.
         
 		
 	 <body>
-		<p> 
-		Page d'acceuil avec plein de trucs ecrits,<br> qui sont super cool <br>et super interessants !! <br>
-		</p>
+		
 	 
     </body>
 </html>
