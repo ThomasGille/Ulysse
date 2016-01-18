@@ -1,15 +1,16 @@
 <html>
     <head>
         <meta charset="UTF-8">
+         <link rel="stylesheet" href="style2.css" /> 
         <title></title>
     </head>
-    <body>
+    <footer>
         <?php
         
         include_once "Var.php";
         include_once "connectDB.php";
         ?>
         Projet Ulysse crée par Thomas GILLE, Juliette DILAS, Jonathan CHHAY, Gaëtan JAQUEMIN
-    </body>
+    </footer>
 </html>
 
