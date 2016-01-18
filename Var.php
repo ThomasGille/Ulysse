@@ -9,7 +9,7 @@
 // On démarre la session
 session_start();
 // params . inc . php
-$host = "localhost";
-$user = "Mardarah";
-$password = "MEKAGpeb2l";
-$dbname = "ulysse";
+        $host="localhost" ;
+	$user="root" ;
+	$password=NULL ;
+	$dbname="ulysse" ;

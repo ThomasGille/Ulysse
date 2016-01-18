@@ -14,17 +14,22 @@ and open the template in the editor.
         <?php
 
         
-        include "connectDB.php";//inclut les variables
+        include_once "connectDB.php";//inclut les variables
 	include "Menu.php";
-		
+	
 		
 		
 
         
         ?>
         <p> 
-            Page d'acceuil avec plein de trucs ecrits,<br> qui sont super cool <br>et super interessants !! <br>
+            Page d'acceuil avec plein de trucs ecrits,<br>
+            qui sont super cool <br>et super interessants !! <br>
+            
         </p>
+         <?php
+        include "footer.php";	
+        ?>
     </body>
 </html>
 
