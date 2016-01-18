@@ -29,9 +29,9 @@ and open the template in the editor.
                                         <li><a href="#">QCM</a>
                                                 <ul>
                                                         <li><a href="CreaQCM.php">Création</a></li>
-                                                        <li><a href="listeQCM.php">Consultation</a></li></li>
+                                                        <li><a href="listeQCM.php">Consultation</a></li>
 
-                                                </ul>
+                                                </ul></li>
                                         <li><a href="affichage_resultats.php">Resultats</a></li>
                                         <li><a href="logout.php">Logout</a></li>
                                         <li><a href=""><?php echo $_SESSION['prenomPersonne'] ?></a></li>
