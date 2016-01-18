@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="" /> 
 
     <head>
-        <title>UlysseQCM IUT_Lyon1</title>
+        <title>Login</title>
         <meta charset="utf-8">
         <meta name="description" content="165c. uniques">
     </head>
