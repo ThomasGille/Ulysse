@@ -11,17 +11,17 @@ and open the template in the editor.
 </head>
 <body>
         <?php
-								include "Var.php";
-								include "Menu.php";
-								include "connectDB.php";
-								
-								// Prise en charge des erreurs
-								verifQcm ( $link );
-								
-								$idQCM = $_GET ["idQCM"];
-								$_SESSION ["idQCM"] = $_GET ["idQCM"];
-								// $_SESSION["questionCourante"] = 1 ;
-								?>
+        include "Var.php";
+        include "Menu.php";
+        include "connectDB.php";
+
+        // Prise en charge des erreurs
+        verifQcm ( $link );
+
+        $idQCM = $_GET ["idQCM"];
+        $_SESSION ["idQCM"] = $_GET ["idQCM"];
+        // $_SESSION["questionCourante"] = 1 ;
+        ?>
                 
         <h1>QCM <?php echo $idQCM ;?></h1>
                 
