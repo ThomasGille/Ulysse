@@ -72,6 +72,7 @@ th {
 	font-weight: bold;
 	padding: 10px 15px;
 	position: relative;
+        background : RGB(186,183,249);
 }
 
 
@@ -82,7 +83,7 @@ td {
 	border-bottom: 1px solid RGB(85,70,103);
 	padding: 10px 15px;
 	position: relative;
-	
+	background : RGB(186,183,249);
 	font: 15px/1 Time New Roman;
 }
 
