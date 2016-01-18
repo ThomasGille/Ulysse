@@ -47,7 +47,7 @@ if (isset($_SESSION ["idPersonne"])){
             </html>
             
             <?php
-            echo "<h4>QCM ".$qcm['idQCM']."</h4>";
+            echo "<h4>QCM ".$qcm['idQCM']." - ".$qcm['NomQCM']."</h4>";
             foreach ($RESULTATS as $indexRes => $res){
                 
                  if ($res['idQCM'] == $qcm['idQCM']){
@@ -81,7 +81,7 @@ if (isset($_SESSION ["idPersonne"])){
             <tbody>
             </html> 
             <?php
-            echo "<th>QCM ".$qcm['idQCM']."</th>";
+            echo "<th>QCM ".$qcm['NomQCM']."</th>";
             foreach ($RESULTATS as $indexRes => $res){
 
                 if ($res['idQCM'] == $qcm['idQCM']&& $res['idPersonne']==$_SESSION ["idPersonne"]){

@@ -9,11 +9,10 @@
 include "Var.php";
 include "connectDB.php";
 
-$_SESSION["idPersonne"] = "1000";
+//$_SESSION["idPersonne"] = "1000";
 //temporaire en attendant les sessions et les users
 
-if ($_POST["nom"] != "" && isset($_SESSION["idPersonne"])) {
-
+if ($_POST["nom"] != "" && $_SESSION["idPersonne"] >=1000) {
 
 
     // on crée la requête SQL
