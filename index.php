@@ -12,8 +12,15 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-            include "connectDB.php";//inclut les variables
-            include "Menu.php";
+
+        
+        include "connectDB.php";//inclut les variables
+	include "Menu.php";
+		
+		
+		
+
+        
         ?>
         <p> 
             Page d'acceuil avec plein de trucs ecrits,<br> qui sont super cool <br>et super interessants !! <br>
