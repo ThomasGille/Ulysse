@@ -7,7 +7,6 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-         <link rel="stylesheet" href="style2.css" /> 
         <title></title>
     </head>
     <?php
