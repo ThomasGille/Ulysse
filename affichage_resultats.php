@@ -18,8 +18,6 @@ include_once "Menu.php";
         $_SESSION["msg"] = mysqli_error($linkDb);
     }
 		
-
-
 $sql = "SELECT * FROM resultat ORDER BY idQCM";
 if ( $result = mysqli_query( $link, $sql ) ) {
     $RESULTATS = mysqli_fetch_all( $result, MYSQLI_ASSOC ) ;
@@ -29,31 +27,30 @@ else {
     $_SESSION["msg"] = mysqli_error($link);
 }
 
-
-
-
 // Si Connexion
 if (isset($_SESSION ["idPersonne"])){
     //Si Prof
     if ($_SESSION ["idPersonne"] >=1000){
-
-        foreach( $QCM as $indexLigne => $qcm ) {
-            echo "QCM".$qcm["idQCM"];
+        foreach( $QCM as $indexLigne => $qcm ) {   
             ?>
-<html>
-<table>
-<thead>
-<tr>
-        <th>Id Elève</th>
-        <th>Note</th>
-</tr>
- </thead>
-<tbody>
-
-</html>  
-<?php
+            <html>
+            <table>
+            <thead>
+            <tr>
+                
+            <th>Id Elève</th>
+            <th>Note</th>
+            
+            </tr>
+            </thead>
+            <tbody>
+            </html>
+            
+            <?php
+            echo "<h4>QCM ".$qcm['idQCM']."</h4>";
             foreach ($RESULTATS as $indexRes => $res){
-                 if ($res['idQCM']== $qcm["idQCM"]){
+                
+                 if ($res['idQCM'] == $qcm['idQCM']){
                      echo "<tr><td>".$res['idPersonne']."</td>";
                      echo "<td>".$res['note']."</td></tr>";
                      
@@ -61,28 +58,45 @@ if (isset($_SESSION ["idPersonne"])){
             }
         }
     }
+    ?>
+    <html>
+    </tbody>
+    </table>
+    </html>
+    <?php
+   
+    if ($_SESSION ["idPersonne"] <1000){
+        ?>
+        <html>
+        <table>
+        <thead>
+        <tr>
+        <?php 
+       
+        foreach( $QCM as $indexLigne => $qcm ) {   
+            
+            ?>      
+            </tr>
+            </thead>
+            <tbody>
+            </html> 
+            <?php
+            echo "<th>QCM ".$qcm['idQCM']."</th>";
+            foreach ($RESULTATS as $indexRes => $res){
+
+                if ($res['idQCM'] == $qcm['idQCM']&& $res['idPersonne']==$_SESSION ["idPersonne"]){
+                    echo "<td>".$res['note']."</td>";  
+                }
+            }
+
+    }
+}
+}
 ?>
 <html>
-
 </tbody>
 </table>
 </html>
-
-    <?php
-    }
-    //Si élève
-    else{
-        // tableau
-     // QCM     QCM     QCM
-      // note  
-        
-    ?>
-
-    <?php
-    }
-//}			
-?>
-
 
 
 
@@ -110,7 +124,6 @@ if (isset($_SESSION ["idPersonne"])){
     
     }
     -->
-
 
 
 
