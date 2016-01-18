@@ -58,17 +58,18 @@ if (isset($_SESSION ["idPersonne"])){
     }
 
    else{
-        echo"<table><tr>";
+       echo"<h4>Notes</h4>";
+        echo"<table>";
         foreach( $QCM as $indexLigne => $qcm ) {   
-            echo"</tr>";
-            echo "<th>QCM ".$qcm['NomQCM']."</th>";
+            
+            echo "<tr><th>QCM ".$qcm['idQCM']." - ".$qcm['NomQCM']."</th>";
             foreach ($RESULTATS as $indexRes => $res){
 
                 if ($res['idQCM'] == $qcm['idQCM']&& $res['idPersonne']==$_SESSION ["idPersonne"]){
-                    echo "<td>".$res['note']."</td>";  
+                    echo "<td>".$res['note']."</td></tr>";  
                 }
             }
-          echo" </table>";
         }
+        echo" </table>";
     }
 }
