@@ -22,12 +22,15 @@ and open the template in the editor.
     color:red;
 }
 
-#footer{
-position:fixed;
+footer{
+position:relative;
+margin : auto;
 bottom:0;
 left:0;
 height:100px;
-background: black;
+text-align: center;
+
+font : 9px/1 Time New Roman;
 }
 
 h5{
@@ -69,6 +72,7 @@ th {
 	font-weight: bold;
 	padding: 10px 15px;
 	position: relative;
+        background : RGB(186,183,249);
 }
 
 
@@ -79,7 +83,7 @@ td {
 	border-bottom: 1px solid RGB(85,70,103);
 	padding: 10px 15px;
 	position: relative;
-	
+	background : RGB(186,183,249);
 	font: 15px/1 Time New Roman;
 }
 
@@ -103,8 +107,5 @@ p, .texte{
     border-bottom: 1px solid RGB(85,70,103);
 }
 
-footer{
-   margin-bottom: 20px;
-   padding-bottom: 20px; 
-}
+
 
