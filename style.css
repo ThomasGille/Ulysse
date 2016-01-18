@@ -44,6 +44,13 @@ background-color: #729EBF;
 background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
 background-image:linear-gradient(to bottom, #729EBF 0%, #333A40 100%);
 }
+
+#menu-demo2 li:nth-child(4){
+background-color: #268AG4;
+background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
+background-image:linear-gradient(to bottom, #729EBF 0%, #333A40 100%);
+}
+
 #menu-demo2 li:nth-child(3){
 background-color: #F6AD1A;
 background-image:-webkit-linear-gradient(top, #F6AD1A 0%, #9F391A 100%);
@@ -64,9 +71,13 @@ background:#333A40;
 #menu-demo2 li:nth-child(3) li{
 background:#9F391A;
 }
+#menu-demo2 li:nth-child(3) li{
+background:#9F234A;
+}
 #menu-demo2 li:last-child li{
 background:#677F35;
 }
+
 /* background des liens menus et sous menus au survol */
 #menu-demo2 li:first-child:hover, #menu-demo2 li:first-child li:hover{
 background:#65537A;
