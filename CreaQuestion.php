@@ -10,13 +10,15 @@ and open the template in the editor.
          <link rel="stylesheet" href="style2.css" /> 
         <title></title>
     </head>
-    <body>
-        <?php
+    <?php
         // put your code here
         include "Var.php";
         include "Menu.php";
         include "connectDB.php";
         ?>
+    <body>
+        <p><div id="texte">
+        
         <form name="qcm" method="post" action="use_creaQuestion.php">
 
             Entrez un énoncé : <input type="text" name="question" value="" size="50" required>
@@ -43,5 +45,7 @@ and open the template in the editor.
             $_SESSION["msg"] = NULL;
         }
         ?>
+        </div></p>
     </body>
 </html>
+<?php include "footer.php"; 
