@@ -30,10 +30,11 @@ $Crypt = Cryptage($pswd);
         $idPers = mysqli_fetch_array($reqID);
 
         if ($idPers[0] == null){
+            include "Login.php";
             echo "<h5>";
             echo "Erreur : personne inexistante / ID erroné";
             echo "</h5>";
-            include "Menu.php";
+            
 
         }else{
             // si etape 1. vrai : 
@@ -71,10 +72,11 @@ $Crypt = Cryptage($pswd);
 
             }else{
                 
+                include "Login.php";
                 echo "<h5>";
                 echo "Erreur : MDP incorrect";
                 echo "</h5>";
-                include "Menu.php";
+                
                 
                 
             }
