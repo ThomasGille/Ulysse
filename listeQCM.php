@@ -12,9 +12,9 @@ and open the template in the editor.
     <body>
         <?php
         
-        include "Var.php";
-        include "Menu.php";
-        include "connectDB.php";
+        include_once "Var.php";
+        //include "Menu.php";
+        include_once "connectDB.php";
         ?>
         
         <h1>QCM</h1>
@@ -23,7 +23,7 @@ and open the template in the editor.
         // On récupère tous les QCM et on les affiches
         //print_r(fetchQcm($link));
         $qcms = fetchQcm($link);
-        afficheQcm($qcms);      
+       // afficheQcm($qcms);      
 
         if (isset($_SESSION["msg"])) {
             echo $_SESSION["msg"];
