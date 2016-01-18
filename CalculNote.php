@@ -8,13 +8,13 @@ include_once "connectDB.php";
 
 $nbQuestion=0;
 $nbJuste=0;
-foreach( $_SESSION[$Rep] as $indexLigne => $reponse ) {
+foreach( $_SESSION["Rep"] as $indexLigne => $reponse ) {
     $Id=$reponse["Id"];
     $data=  \fetchReponses($Id, $link); //récupération des réponses justes
     var_dump($data);
     $string="";
     foreach ($data as $indexRep => $rep){//cr"ation du mot bianaire des rep justes
-        $string.=$data["juste"];
+        $string.=$rep["juste"];
     }
     if(strcmp($string,$reponse["R"])){// comparaison avec les réponses users
         echo "Réponse juste à la question ".$Id;
@@ -32,11 +32,11 @@ $sql = "INSERT INTO `resultat` VALUES (\"" . $_SESSION["idQCM"] . "\", \"" . $_S
 
 if (mysqli_query($link, $sql)) {
     // On redirige le visiteur vers la page création de question
-    echo 'question insérée <br />';
+    echo '<br />Resultat inséré<br />';
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($link);
+    echo "<br />Error: " . $sql . "<br>" . mysqli_error($link);
 }
-
+echo '<a href="affichage_resultats.php">Voir vos resultats</a>';
 
 function fetchReponses($Id,$link) {
 

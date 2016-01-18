@@ -26,17 +26,17 @@ and open the template in the editor.
         <h1>QCM <?php echo $idQCM ;?></h1>
                 
        <?php
-							// On récupère toutes les questions
-							$question = fetchQuestions ( $link, $idQCM );
-							afficheQuestions ( $link, fetchQuestions ( $link, $idQCM ) );
-							
-							print_r ( fetchQuestions ( $link, $_SESSION ["idQCM"] ) );
-							
-							if (isset ( $_SESSION ["msg"] )) {
-								echo $_SESSION ["msg"];
-								$_SESSION ["msg"] = NULL;
-							}
-							?>
+            // On récupère toutes les questions
+            $question = fetchQuestions ( $link, $idQCM );
+            afficheQuestions ( $link, fetchQuestions ( $link, $idQCM ) );
+
+            print_r ( fetchQuestions ( $link, $_SESSION ["idQCM"] ) );
+
+            if (isset ( $_SESSION ["msg"] )) {
+                    echo $_SESSION ["msg"];
+                    $_SESSION ["msg"] = NULL;
+            }
+            ?>
     </body>
 </html>
 
@@ -71,6 +71,7 @@ function verifQcm($linkDb) {
 		$_SESSION ["msg"] = mysqli_error ( $linkDb );
 	}
 }
+
 function fetchQuestions($linkDb, $idQCM) {
 	
 	// print_r($reponses) ; echo '<br />';
@@ -139,22 +140,20 @@ function afficheQuestions($linkDb, $questions) {
 	 *
 	 * }
 	 */
+	$_SESSION["idQuestion"]=$questions ["$numQuestion"] ["idQuestion"];
+	echo 'Question courante ='.$numQuestion . "<br />";
+	echo "Question = " . $questions ["$numQuestion"] ["enonceQuestion"] . "<br />";
+	$_SESSION ['idQuestion']=$questions ["$numQuestion"] ["idQuestion"];
 	
-	echo $numQuestion . "<br />";
-	
-	echo "idQuestion = " . $questions ["$numQuestion"] ["idQuestion"] . " " . $questions ["$numQuestion"] ["enonceQuestion"] . "<br />";
-	
-	// echo "Question ".$numQuestion."<br />";
-	// echo $question["enonceQuestion"]." "."<br />"
-	
-	// echo "id = ".$id."<br />";
-	echo '<form method = "post" action ="' . enregistreRepBD($questions ["$numQuestion"] ["idQuestion"]) . '">';
+        echo '<form method = "post" action ="CreationTab.php">';
+       
 	afficheReponses ( fetchReponses ( $linkDb, $questions ["$numQuestion"] ["idQuestion"] ) );
 	echo '<input type = "submit" name = "Question_suivante" value = "Question suivante" />';
 	echo '</form>';
 	
 	echo "<br />";
 }
+
 function afficheReponses($reponses) {
 	//print_r ( $reponses );
 	echo '<br />';
@@ -176,37 +175,25 @@ function afficheReponses($reponses) {
 	 * }
 	 */
 }
-function enregistreRepBD($idQuestion) {
-	$_SESSION ['questionCourante'] ++;
-	echo 'idQUestion : ' . $_SESSION ['questionCourante'] . '<br />';
+
+function Compte_question($linkDb, $idQCM) {
 	
-	if (isset ( $_POST ['cha'] ))
-		$cha = 1;
-	else
-		$cha = 0;
-	if (isset ( $_POST ['chb'] ))
-		$chb = 1;
-	else
-		$chb = 0;
-	if (isset ( $_POST ['chc'] ))
-		$chc = 1;
-	else
-		$chc = 0;
-	if (isset ( $_POST ['chd'] ))
-		$chd = 1;
-	else
-		$chd = 0;
+	// print_r($reponses) ; echo '<br />';
+	$sql = "SELECT count(*) as cpt FROM `question` WHERE `idQCM` LIKE  " . $idQCM;
 	
-	$string = $cha . $chb . $chc . $chd;
-	echo $string . "<br />";
+	// Si la requête a réussi on récupère toutes les questions de la table
+	if ($result = mysqli_query ( $linkDb, $sql )) {
+		
+		$rows = mysqli_fetch_all ( $result, MYSQLI_ASSOC );
+		mysqli_free_result ( $result );
+	} 	
+
+	// Sinon affiche l'erreur
+	else {
+		
+		$_SESSION ["msg"] = mysqli_error ( $linkDb );
+	}
 	
-	$coordonnees = array (
-			'Id' => $idQuestion,
-			'R' => $string 
-	);
-	$Rep [] = $coordonnees; // append
-	
-	$_SESSION ["Rep"] = $Rep;
-	print_r( $_SESSION ["Rep"] );
+       
+	return $rows[0]["cpt"];
 }
-	
