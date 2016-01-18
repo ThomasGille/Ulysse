@@ -34,7 +34,8 @@ if (isset($_SESSION ["idPersonne"])){
         foreach( $QCM as $indexLigne => $qcm ) {   
             ?>
             <html>
-            <table>
+               
+                    <table>
             <tr>
                 
             <th>Id Elève</th>
@@ -45,6 +46,7 @@ if (isset($_SESSION ["idPersonne"])){
             
             <?php
             echo "<h4>QCM ".$qcm['idQCM']." - ".$qcm['NomQCM']."</h4>";
+            echo'<p><div id="texte">';
             foreach ($RESULTATS as $indexRes => $res){
                 
                  if ($res['idQCM'] == $qcm['idQCM']){
@@ -54,12 +56,12 @@ if (isset($_SESSION ["idPersonne"])){
                  }
             }
         }
-        echo"</table>";
+        echo"</table></div></p>";
     }
-
+   
    else{
        echo"<h4>Notes</h4>";
-        echo"<table>";
+        echo'<p><div id="texte"><table>';
         foreach( $QCM as $indexLigne => $qcm ) {   
             
             echo "<tr><th>QCM ".$qcm['idQCM']." - ".$qcm['NomQCM']."</th>";
@@ -70,7 +72,7 @@ if (isset($_SESSION ["idPersonne"])){
                 }
             }
         }
-        echo" </table>";
+        echo" </table></div></p>";
     }
 }
  include "footer.php"; 
