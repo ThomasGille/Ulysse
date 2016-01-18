@@ -43,7 +43,7 @@ and open the template in the editor.
                 ?>
                 <html>
                         <ul id="menu-demo2">
-                                <li><a href="#">Accueil</a></li>
+                                <li><a href="index.php">Accueil</a></li>
                                 <li><a href="repondreQCM.php">Répondre QCM</a></li>
                                 <li><a href="affichage_resultats.php">Resultats</a>
                                 <li><a href="Logout.php">Logout</a></li>
