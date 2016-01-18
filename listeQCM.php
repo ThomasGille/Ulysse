@@ -29,6 +29,12 @@ and open the template in the editor.
             echo $_SESSION["msg"];
             $_SESSION["msg"] = NULL;
         }
+        
+        // Pour remettre à zéro avant de répondre à un nouveau QCM
+        if (isset($_SESSION["questionCourante"])) {
+        	$_SESSION["questionCourante"] = NULL;
+        	$_SESSION["idQCM"] = NULL;
+        }
         ?>
     </body>
 </html>
