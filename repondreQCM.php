@@ -133,14 +133,10 @@ and open the template in the editor.
 		//print_r($questions); echo "<br />";
 		// On parcourt chaque lignes
 		
-		//$_SESSION["questionCourante"] = 1;
-		
 		// On prend le compteur à la question en cours
 		if( isset($_SESSION["questionCourante"])) {
 			$numQuestion = $_SESSION["questionCourante"];
 
-			//echo '';
-			//unset($_GET["questionCourante"]);
 		}
 		
 		// On remet à le compteur à zéro si on vien de commencer à répondre au QCM
@@ -167,8 +163,6 @@ and open the template in the editor.
 			//echo $question["enonceQuestion"]." "."<br />"
 			
 			//echo "id = ".$id."<br />";
-			
-			fetchReponses($linkDb, $id);
 			
 		/*
 			echo '<form method = "post" action ="repondreQCM.php?idQCM='.$_SESSION['idQCM']
@@ -204,7 +198,6 @@ and open the template in the editor.
 	
 		$_SESSION['questionCourante']++;
 		echo 'idQUestion : '.$_SESSION['questionCourante'].'<br />';
-		
 		
 		/*
 		$coordonnees = array (
