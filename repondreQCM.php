@@ -21,7 +21,7 @@ and open the template in the editor.
         
         $idQCM = $_GET["idQCM"];
         $_SESSION["idQCM"] = $_GET["idQCM"];
-        $_SESSION["questionCourante"] = 1 ;
+        //$_SESSION["questionCourante"] = 1 ;
         ?>
                 
         <h1>QCM <?php echo $idQCM ;?></h1>
@@ -135,16 +135,28 @@ and open the template in the editor.
 		
 		//$_SESSION["questionCourante"] = 1;
 		
-		//echo isset($_GET["questionCourante"]);
-		if( isset($_GET["questionCourante"])) {
-			$numQuestion = $_GET["questionCourante"]++;
+		// On prend le compteur à la question en cours
+		if( isset($_SESSION["questionCourante"])) {
+			$numQuestion = $_SESSION["questionCourante"];
 
 			//echo '';
 			//unset($_GET["questionCourante"]);
 		}
+		
+		// On remet à le compteur à zéro si on vien de commencer à répondre au QCM
 		else {
-			$numQuestion = 0;
+			$_SESSION["questionCourante"] = 0;
+			$numQuestion = $_SESSION["questionCourante"];
 		}
+		
+		/*
+		// Si fin du QCM
+		if( isset($questions["$numQuestion"]) ) {
+			
+			
+		}
+		*/
+		
 		
 		echo $numQuestion."<br />";
 		
@@ -156,10 +168,12 @@ and open the template in the editor.
 			
 			//echo "id = ".$id."<br />";
 			
-			//fetchReponses($linkDb, $id)
+			fetchReponses($linkDb, $id);
 			
+		/*
 			echo '<form method = "post" action ="repondreQCM.php?idQCM='.$_SESSION['idQCM']
-				."&questionCourante=".$numQuestion++.'">';
+				."&questionCourante=".$numQuestion++.'">'; */
+		echo '<form method = "post" action ="'.enregistreRepBD().'">';
 				afficheReponses(fetchReponses($linkDb, $questions["$numQuestion"]["idQuestion"]) );
 				echo '<input type = "submit" name = "Question_suivante" value = "Question suivante" />';
 			echo '</form>';
@@ -187,17 +201,22 @@ and open the template in the editor.
 	}
 	
 	function enregistreRepBD() {
+	
+		$_SESSION['questionCourante']++;
+		echo 'idQUestion : '.$_SESSION['questionCourante'].'<br />';
+		
 		
 		/*
 		$coordonnees = array (
 				'Id' => '22',
 				'R' => '0001');
-		$Rep[] =$coordonnees; // append
+		$Rep[] = $coordonnees; // append
 		$coordonnees = array (
 				'Id' => '22',
 				'R' => '0010');
 		$Rep[] =$coordonnees;
 		print_r($Rep);
+		
 		$_SESSION["Rep"]=$Rep;
 		*/
 		

@@ -26,9 +26,9 @@ foreach( $_SESSION[$Rep] as $indexLigne => $reponse ) {
     $nbQuestion++;
 }
 //insertion dans la bd du résultat
-$note=round($nbJuste/$nbQuestion, 0);
+$note=round(($nbJuste/$nbQuestion)*100, 0);
 ///////////// insertion question
-$sql = "INSERT INTO `resultat` VALUES (\"" . $_SESSION["idQCM"] . "\", \"" . $_POST["idPersonne"] . "\",".$note.");";
+$sql = "INSERT INTO `resultat` VALUES (\"" . $_SESSION["idQCM"] . "\", \"" . $_SESSION["idPersonne"] . "\",".$note.");";
 
 if (mysqli_query($link, $sql)) {
     // On redirige le visiteur vers la page création de question
