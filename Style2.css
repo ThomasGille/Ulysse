@@ -90,3 +90,16 @@ tr {
 	background: RGB(255,255,255);	
 }
 
+body{
+    background-color : RGB(173,210,252);
+}
+
+p{
+    color : RGB(85,70,103);
+}
+
+footer{
+   margin-bottom: 20px;
+   padding-bottom: 20px; 
+}
+
