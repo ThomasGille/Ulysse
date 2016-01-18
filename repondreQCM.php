@@ -20,13 +20,19 @@ and open the template in the editor.
         verifQcm($link);
         
         $idQCM = $_GET["idQCM"];
+        $_SESSION["idQCM"] = $_GET["idQCM"];
+        $_SESSION["questionCourante"] = 1 ;
         ?>
                 
         <h1>QCM <?php echo $idQCM ;?></h1>
                 
        <?php 
        	// On récupère toutes les questions
+       $question = fetchQuestions($link, $idQCM);
        afficheQuestions($link, fetchQuestions($link, $idQCM));
+       
+       
+       print_r(fetchQuestions($link, $_SESSION["idQCM"]));
                 
         if (isset($_SESSION["msg"])) {
  			echo $_SESSION["msg"];
@@ -127,42 +133,73 @@ and open the template in the editor.
 		//print_r($questions); echo "<br />";
 		// On parcourt chaque lignes
 		
-		$numQuestion = 1;
-		foreach( $questions as $id => $question ) {
-
-			//echo "idQuestion = ".$question["idQuestion"]."<br />";
+		//$_SESSION["questionCourante"] = 1;
 		
-			echo "Question ".$numQuestion."<br />";
-			echo $question["enonceQuestion"]." "."<br />";
+		//echo isset($_GET["questionCourante"]);
+		if( isset($_GET["questionCourante"])) {
+			$numQuestion = $_GET["questionCourante"]++;
+
+			//echo '';
+			//unset($_GET["questionCourante"]);
+		}
+		else {
+			$numQuestion = 0;
+		}
+		
+		echo $numQuestion."<br />";
+		
+		echo "idQuestion = ".$questions["$numQuestion"]["idQuestion"]." ".$questions["$numQuestion"]["enonceQuestion"]."<br />";
+		
+			
+			//echo "Question ".$numQuestion."<br />";
+			//echo $question["enonceQuestion"]." "."<br />"
 			
 			//echo "id = ".$id."<br />";
 			
 			//fetchReponses($linkDb, $id)
-			afficheReponses(fetchReponses($linkDb, $question["idQuestion"]) );
 			
+			echo '<form method = "post" action ="repondreQCM.php?idQCM='.$_SESSION['idQCM']
+				."&questionCourante=".$numQuestion++.'">';
+				afficheReponses(fetchReponses($linkDb, $questions["$numQuestion"]["idQuestion"]) );
+				echo '<input type = "submit" name = "Question_suivante" value = "Question suivante" />';
+			echo '</form>';
+				
 			echo "<br />";
 			
-			$numQuestion++;
-		}
-		
-
 	}
 	
 	function afficheReponses($reponses) {
 	
 		//print_r($reponses) ; echo '<br />';
-		
+	
 		// On parcourt chaque lignes
 		foreach( $reponses as $id => $reponse ) {
-				
+	
 			// On parcourt chaque colonnes
 			foreach( $reponse as $cle => $champ ) {
-				
+	
 				echo '<input type="checkbox" name = '.$id.'" value="" />'.$champ.'<br />';
 			}
-				
+	
 			echo "<br />";
 		}
 	
 	}
-?>
+	
+	function enregistreRepBD() {
+		
+		/*
+		$coordonnees = array (
+				'Id' => '22',
+				'R' => '0001');
+		$Rep[] =$coordonnees; // append
+		$coordonnees = array (
+				'Id' => '22',
+				'R' => '0010');
+		$Rep[] =$coordonnees;
+		print_r($Rep);
+		$_SESSION["Rep"]=$Rep;
+		*/
+		
+	}
+	
