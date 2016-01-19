@@ -7,3 +7,4 @@ $rows = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.
 $requete="DELETE FROM ulysse.question WHERE idQCM =".$_SESSION["idQCM"];
 $rows = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
           
+header("Location:index.php");

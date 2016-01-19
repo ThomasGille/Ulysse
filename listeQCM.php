@@ -30,7 +30,9 @@ and open the template in the editor.
         //print_r(fetchQcm($link));
         $qcms = fetchQcm($link);
         afficheQcm($qcms);      
-
+        
+        
+        
         if (isset($_SESSION["msg"])) {
             echo $_SESSION["msg"];
             $_SESSION["msg"] = NULL;
@@ -78,7 +80,7 @@ and open the template in the editor.
 		foreach( $qcms as $indexLigne => $qcm ) {
 			
 			// On passe l'id du QCM dans $_GET pour repondre au QCM
-			echo '<th><a href="repondreQCM.php?idQCM='.$qcm["idQCM"].'">QCM '.$qcm["idQCM"].'</th> ';
+			echo '<th><a href="visuCreaQCM.php?idQCM='.$qcm["idQCM"].'">QCM '.$qcm["idQCM"].'</th> ';
 		
 		}
                echo '</tr></table>';

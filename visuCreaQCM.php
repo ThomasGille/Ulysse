@@ -15,12 +15,24 @@ and open the template in the editor.
         <h1> QCM n°
             <?php
             include "connectDB.php";
-            echo $_SESSION["idQCM"];
+           
+            if (isset($_GET["idQCM"])){
+                $IdQCM = $_GET["idQCM"];
+                echo $IdQCM;
+                $_SESSION["idQCM"] = $IdQCM;
+            }else{
+                if(isset($_SESSION["idQCM"])){
+                     $IdQCM = $_SESSION["idQCM"];
+                     echo $IdQCM;
+                }else{
+                    echo "erreur ! ";
+                }
+            }
             ?></h1>
         <p><div id="texte">
         <?php
         
-            $qcms = fetchQuestion($link);
+            $qcms = fetchQuestion($link,$IdQCM);
             //var_dump($qcms);
             //afficheQcm($qcms);  
             afficheQuestion($qcms,$link);
@@ -36,11 +48,11 @@ and open the template in the editor.
 
 <?php 
 
-	function fetchQuestion($link) {
+	function fetchQuestion($link,$IdQCM) {
 
 		//print_r($reponses) ; echo '<br />';
 		
-		$sql = "SELECT * FROM `question` where idQCM like \"" . $_SESSION["idQCM"] . "\" ";
+		$sql = "SELECT * FROM `question` where idQCM =" .$IdQCM;
 		
 		// Si la requête a réussi on récupère toutes les questions de la table
 		if ( $result = mysqli_query( $link, $sql ) ) {
