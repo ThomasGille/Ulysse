@@ -154,6 +154,9 @@ function afficheQuestions($linkDb, $questions) {
 	afficheReponses ( fetchReponses ( $linkDb, $questions ["$numQuestion"] ["idQuestion"] ) );
 	echo '<input type = "submit" name = "Question_suivante" value = "Question suivante" />';
 	echo '</form>';
+        $_SESSION ["cpt"]=Compte_question($linkDb,$_GET ["idQCM"]);
+        //echo $_SESSION ['questionCourante']."Patate".$_SESSION ["cpt"];
+        
 	
 	echo "<br />";
 }

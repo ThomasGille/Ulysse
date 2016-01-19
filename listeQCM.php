@@ -16,6 +16,11 @@ and open the template in the editor.
         include_once "Var.php";
         include "Menu.php";
         include_once "connectDB.php";
+        
+        if ( ! isset($_SESSION ["idPersonne"])){
+        	header("Location:index.php");
+        }
+        
         ?>
         
         <h1>QCM</h1>
