@@ -7,22 +7,21 @@ and open the template in the editor.
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="style2.css" />  
 <title>Création QCM</title>
 </head>
 <body>
         <?php
-            include "Var.php";
-            include "Menu.php";
-            include "connectDB.php";
+        include "Var.php";
+        include "Menu.php";
+        include "connectDB.php";
 
-            // Prise en charge des erreurs
-            verifQcm ( $link );
+        // Prise en charge des erreurs
+        verifQcm ( $link );
 
-            $idQCM = $_GET ["idQCM"];
-            $_SESSION ["idQCM"] = $_GET ["idQCM"];
-            // $_SESSION["questionCourante"] = 1 ;
-            ?>
+        $idQCM = $_GET ["idQCM"];
+        $_SESSION ["idQCM"] = $_GET ["idQCM"];
+        // $_SESSION["questionCourante"] = 1 ;
+        ?>
                 
         <h1>QCM <?php echo $idQCM ;?></h1>
                 
@@ -31,7 +30,7 @@ and open the template in the editor.
             $question = fetchQuestions ( $link, $idQCM );
             afficheQuestions ( $link, fetchQuestions ( $link, $idQCM ) );
 
-            print_r ( fetchQuestions ( $link, $_SESSION ["idQCM"] ) );
+            //print_r ( fetchQuestions ( $link, $_SESSION ["idQCM"] ) );
 
             if (isset ( $_SESSION ["msg"] )) {
                     echo $_SESSION ["msg"];
@@ -142,8 +141,9 @@ function afficheQuestions($linkDb, $questions) {
 	 * }
 	 */
 	$_SESSION["idQuestion"]=$questions ["$numQuestion"] ["idQuestion"];
-	echo 'Question courante ='.$numQuestion . "<br />";
-	echo "Question = " . $questions ["$numQuestion"] ["enonceQuestion"] . "<br />";
+	//echo 'Question courante ='.$numQuestion . "<br />";
+        echo 'Vous en etes à la question '.($numQuestion+1).' sur '. Compte_question($linkDb, $_SESSION ["idQCM"] ). ' ';
+	echo "<h3>" . $questions ["$numQuestion"] ["enonceQuestion"] . "</h3><br />";
 	$_SESSION ['idQuestion']=$questions ["$numQuestion"] ["idQuestion"];
 	
         echo '<form method = "post" action ="CreationTab.php">';
