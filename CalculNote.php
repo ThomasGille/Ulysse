@@ -12,17 +12,17 @@ $nbJuste=0;
 foreach( $_SESSION["Rep"] as $indexLigne => $reponse ) {
     $Id=$reponse["Id"];
     $data=  \fetchReponses($Id, $link); //récupération des réponses justes
-    var_dump($data);
+    //var_dump($data);
     $string="";
-    foreach ($data as $indexRep => $rep){//cr"ation du mot bianaire des rep justes
+    foreach ($data as $indexRep => $rep){//creation du mot bianaire des rep justes
         $string.=$rep["juste"];
     }
     if(strcmp($string,$reponse["R"])){// comparaison avec les réponses users
-        echo "Réponse juste à la question ".$Id;
+        echo "Reponse juste a la question ".$Id."<br />";
         $nbJuste++;
     }
     else {
-        echo "Réponse fausse à la question ".$Id;
+        echo "Reponse fausse à la question ".$Id."<br />";
     }
     $nbQuestion++;
 }
@@ -37,7 +37,7 @@ if (mysqli_query($link, $sql)) {
 } else {
     echo "<br />Error: " . $sql . "<br>" . mysqli_error($link);
 }
-echo '<a href="affichage_resultats.php">Voir vos resultats</a>';
+echo '<br /><br /><br /><a href="affichage_resultats.php">Voir vos resultats</a>';
 
 function fetchReponses($Id,$link) {
 
