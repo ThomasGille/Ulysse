@@ -7,6 +7,7 @@ and open the template in the editor.
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="style2.css" /> 
 <title>Création QCM</title>
 </head>
 <body>
@@ -24,6 +25,7 @@ and open the template in the editor.
         ?>
                 
         <h1>QCM <?php echo $idQCM ;?></h1>
+        <p><div id="texte">
                 
        <?php
             // On récupère toutes les questions
@@ -37,6 +39,7 @@ and open the template in the editor.
                     $_SESSION ["msg"] = NULL;
             }
             ?>
+        </div></p>
     </body>
 </html>
 

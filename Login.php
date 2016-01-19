@@ -21,7 +21,7 @@
                 <label><input type="number" name="id" value="" required /></label>
                 <br>
                 <h4>Mot de Passe</h4>
-                <label><input type="password" name="mdp" value="password" required /></label>
+                <label><input type="password" name="mdp" value="azerty" required /></label>
                
 				<br><br>
                 <input type="submit">	
