@@ -52,15 +52,19 @@ $Crypt = Cryptage($pswd);
                 //5. Verification si Personne est prof ou élève
                 $requete="SELECT admin FROM personne WHERE idPersonne = $idPers[0] ";
                 $req = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
-                $admin = $pswd = mysqli_fetch_array($req);
+                $admin = mysqli_fetch_array($req);
 
                // 6. Recuperation de son nom
                             $requete="SELECT prenom FROM $dbname.personne WHERE idPersonne = $idPers[0]";
                             $reqID = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
                             $nomPers = mysqli_fetch_array($reqID);
+               // Recupération de son mail
+                            $requete="SELECT mail FROM personne WHERE idPersonne = $idPers[0] ";
+                $req = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
+                $mail = mysqli_fetch_array($req);
 
                 if ($admin[0] == '1'){
-                    Session($idPers[0], $nomPers[0]);
+                    Session($idPers[0], $nomPers[0], $mail[0]);
 
                     header('Location: index.php');      
 
