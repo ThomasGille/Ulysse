@@ -27,6 +27,7 @@ and open the template in the editor.
         ?>
         <br />
         <form method="link" action="CreaQuestion.php"> <input type="submit" value="Ajouter une question"></form>
+        <form method="link" action="AnnulQCM.php"> <input type="submit" value="Annuler / Tout supprimer"></form>
         <form method="link" action="index.php"> <input type="submit" value="Sauvegarder et partir"></form>
         </div></p>
         </body>
