@@ -18,7 +18,7 @@ and open the template in the editor.
         ?>
         <p>
            <div id="texte">
-            Bienvenu sur notre site de QCM
+            Bienvenue sur notre site de QCM
             <br><br><br><br><br><br><br><br><br><br><br><br>
         
            </div>
