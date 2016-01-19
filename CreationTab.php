@@ -8,7 +8,7 @@
 include_once "Var.php";
 include_once "connectDB.php";
 	
-	
+
 	echo 'Question courante avant ++ : ' . $_SESSION ['questionCourante'] . '<br />';
 	$_SESSION ['questionCourante'] ++;
 	if (isset ( $_POST ['cha'] ))	$cha = 1;

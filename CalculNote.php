@@ -54,6 +54,9 @@ if (mysqli_query($link, $sql)) {
 }
 echo '<br /><br /><br /><a href="affichage_resultats.php">Voir vos resultats</a>';
 
+// Envoi du mail
+mail('caffeinated@example.com', 'Mon Sujet', $message);
+
 function fetchReponses($Id,$link) {
 
 		//print_r($reponses) ; echo '<br />';
