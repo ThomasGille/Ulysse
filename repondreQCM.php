@@ -31,7 +31,7 @@ and open the template in the editor.
             $question = fetchQuestions ( $link, $idQCM );
             afficheQuestions ( $link, fetchQuestions ( $link, $idQCM ) );
 
-            print_r ( fetchQuestions ( $link, $_SESSION ["idQCM"] ) );
+           // print_r ( fetchQuestions ( $link, $_SESSION ["idQCM"] ) );
 
             if (isset ( $_SESSION ["msg"] )) {
                     echo $_SESSION ["msg"];
@@ -143,7 +143,7 @@ function afficheQuestions($linkDb, $questions) {
 	 */
 	$_SESSION["idQuestion"]=$questions ["$numQuestion"] ["idQuestion"];
 	echo 'Question courante ='.$numQuestion . "<br />";
-	echo "Question = " . $questions ["$numQuestion"] ["enonceQuestion"] . "<br />";
+	echo $questions ["$numQuestion"] ["enonceQuestion"] . "<br />";
 	$_SESSION ['idQuestion']=$questions ["$numQuestion"] ["idQuestion"];
 	
         echo '<form method = "post" action ="CreationTab.php">';
