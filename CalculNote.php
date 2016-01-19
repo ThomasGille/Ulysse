@@ -6,6 +6,7 @@ include_once "connectDB.php";
  * and open the template in the editor.
  */
 
+
 $nbQuestion=0;
 $nbJuste=0;
 foreach( $_SESSION["Rep"] as $indexLigne => $reponse ) {
