@@ -64,7 +64,7 @@ if (isset($_SESSION ["idPersonne"])){
         echo'<p><div id="texte"><table>';
         foreach( $QCM as $indexLigne => $qcm ) {   
             
-            echo "<tr><th>QCM ".$qcm['idQCM']." - ".$qcm['NomQCM']."</th>";
+            echo "<tr><td>QCM ".$qcm['idQCM']." - ".$qcm['NomQCM']."</td>";
             foreach ($RESULTATS as $indexRes => $res){
 
                 if ($res['idQCM'] == $qcm['idQCM']&& $res['idPersonne']==$_SESSION ["idPersonne"]){
