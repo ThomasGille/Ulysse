@@ -17,6 +17,12 @@ and open the template in the editor.
         include "connectDB.php";
         ?>
         
+        <?php 
+	        if ( ! isset($_SESSION ["idPersonne"])){
+	        	header("Location:index.php");
+	        }
+        ?>
+        
         <h1> Création QCM </h1>
         <p><div id="texte">
         <form name="qcm" method="post" action="use_creaQCM.php">

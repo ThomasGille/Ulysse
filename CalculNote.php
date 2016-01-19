@@ -1,4 +1,10 @@
 <?php
+
+// Si l'on est pas connecté
+if ( ! isset($_SESSION ["idPersonne"])){
+	header("Location:index.php");
+}
+
 include_once "connectDB.php";
 /* 
  * To change this license header, choose License Headers in Project Properties.

@@ -9,6 +9,11 @@ include_once 'Var.php';
 include_once 'connectDB.php';
 include_once "Menu.php";
 
+	// Si l'on est pas connecté
+	if ( ! isset($_SESSION ["idPersonne"])){
+		header("Location:index.php");
+	}
+
     $sql = "SELECT * FROM `qcm`";	
     if ( $result = mysqli_query( $link, $sql ) ) {
         $QCM = mysqli_fetch_all( $result, MYSQLI_ASSOC ) ;

@@ -14,6 +14,11 @@ and open the template in the editor.
         include "Var.php";
         include "Menu.php";
         include "connectDB.php";
+        
+        if ( ! isset($_SESSION ["idPersonne"])){
+        	header("Location:index.php");
+        }
+        
         ?>
     <body>
         <p><div id="texte">
