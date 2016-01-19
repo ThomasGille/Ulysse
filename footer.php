@@ -10,7 +10,7 @@
         include_once "Var.php";
         include_once "connectDB.php";
         ?>
-        Projet Ulysse crée par Thomas GILLE, Juliette DILAS, Jonathan CHHAY, Gaëtan JAQUEMIN ----- IUT Claude Bernard Lyon1 ------  suivi par Karim BENOUARET
+        Projet Ulysse créé par Thomas GILLE, Juliette DILAS, Jonathan CHHAY, Gaëtan JAQUEMIN ----- IUT Claude Bernard Lyon1 ------  suivi par Karim BENOUARET
     </footer>
 </html>
 
