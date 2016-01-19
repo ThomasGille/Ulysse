@@ -36,12 +36,12 @@ include_once "connectDB.php";
 	
 	if($_SESSION ['questionCourante'] ==$_SESSION ["cpt"] ){
             
-            echo" patata, cpt atteint";
+           // echo" patata, cpt atteint";
             header ( "Location:CalculNote.php" );
         }
         else {
             
-            echo" Another question";
+           // echo" Another question";
             header ( "Location:repondreQCM.php?idQCM=".$_SESSION ["idQCM"] );
         }
 	
