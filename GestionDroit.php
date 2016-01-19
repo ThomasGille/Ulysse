@@ -59,21 +59,16 @@ $Crypt = Cryptage($pswd);
                             $reqID = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
                             $nomPers = mysqli_fetch_array($reqID);
                // Recupération de son mail
-                            $requete="SELECT mail FROM personne WHERE idPersonne = $idPers[0] ";
-                $req = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
-                $mail = mysqli_fetch_array($req);
+                            $requete="SELECT mail FROM personne WHERE idPersonne =". $idPers[0] ;
+                $reqM = mysqli_query($link, $requete) or die('Erreur SQL !<br>'.$requete.'<br>'.mysql_error());
+                $mail = mysqli_fetch_array($reqM);
 
-                if ($admin[0] == '1'){
+               
                     Session($idPers[0], $nomPers[0], $mail[0]);
 
                     header('Location: index.php');      
 
-                }
-                else{
-                    Session($idPers[0],$nomPers[0]);
-
-                    header('Location: index.php');      
-                }
+                
 
             }else{
                 

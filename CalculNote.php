@@ -60,7 +60,7 @@ and open the template in the editor.
 	echo '<br /><br /><br /><a href="affichage_resultats.php">Voir vos resultats</a>';
 	
 	// Envoi du mail
-	mail('caffeinated@example.com', 'Mon Sujet', $message);
+	mail($_SESSION['mailPersonne'], 'Ceci est un sujet', 'Vous avez obtenu '.$note.'% au qcm n°'.$_SESSION["idQCM"] );
 
 
 
