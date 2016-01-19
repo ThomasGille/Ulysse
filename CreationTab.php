@@ -9,7 +9,7 @@ include_once "Var.php";
 include_once "connectDB.php";
 
 	// Si l'on est pas connecté
-	if ( isset($_SESSION ["idPersonne"])){
+	if ( ! isset($_SESSION ["idPersonne"])){
 		
 		echo 'Question courante avant ++ : ' . $_SESSION ['questionCourante'] . '<br />';
 		$_SESSION ['questionCourante'] ++;
