@@ -25,7 +25,7 @@ and open the template in the editor.
 <?php
 
 // Si l'on est pas connecté
-if ( isset($_SESSION ["idPersonne"])){
+
 
 	$nbQuestion=0;
 	$nbJuste=0;
@@ -61,10 +61,8 @@ if ( isset($_SESSION ["idPersonne"])){
 	
 	// Envoi du mail
 	mail('caffeinated@example.com', 'Mon Sujet', $message);
-}
-else {
-	header("Location:index.php");
-}
+
+
 
 function fetchReponses($Id,$link) {
 
