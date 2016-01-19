@@ -2,11 +2,6 @@
 
 <?php
 
-// Si l'on est pas connecté
-if ( ! isset($_SESSION ["idPersonne"])){
-	header("Location:index.php");
-}
-
 include_once "connectDB.php";
 /* 
  * To change this license header, choose License Headers in Project Properties.
@@ -28,40 +23,48 @@ and open the template in the editor.
     </head>
     
 <?php
-$nbQuestion=0;
-$nbJuste=0;
-foreach( $_SESSION["Rep"] as $indexLigne => $reponse ) {
-    $Id=$reponse["Id"];
-    $data=  \fetchReponses($Id, $link); //récupération des réponses justes
-    //var_dump($data);
-    $string="";
-    foreach ($data as $indexRep => $rep){//creation du mot bianaire des rep justes
-        $string.=$rep["juste"];
-    }
-    if(strcmp($string,$reponse["R"])){// comparaison avec les réponses users
-        echo "Reponse juste a la question ".$Id."<br />";
-        $nbJuste++;
-    }
-    else {
-        echo "Reponse fausse à la question ".$Id."<br />";
-    }
-    $nbQuestion++;
-}
-//insertion dans la bd du résultat
-$note=round(($nbJuste/$nbQuestion)*100, 0);
-///////////// insertion question
-$sql = "INSERT INTO `resultat` VALUES (\"" . $_SESSION["idQCM"] . "\", \"" . $_SESSION["idPersonne"] . "\",".$note.");";
 
-if (mysqli_query($link, $sql)) {
-    // On redirige le visiteur vers la page création de question
-    echo '<br />Resultat inséré<br />';
-} else {
-    echo "<br />Error: " . $sql . "<br>" . mysqli_error($link);
-}
-echo '<br /><br /><br /><a href="affichage_resultats.php">Voir vos resultats</a>';
+// Si l'on est pas connecté
+if ( isset($_SESSION ["idPersonne"])){
 
-// Envoi du mail
-mail('caffeinated@example.com', 'Mon Sujet', $message);
+	$nbQuestion=0;
+	$nbJuste=0;
+	foreach( $_SESSION["Rep"] as $indexLigne => $reponse ) {
+		$Id=$reponse["Id"];
+		$data=  \fetchReponses($Id, $link); //récupération des réponses justes
+		//var_dump($data);
+		$string="";
+		foreach ($data as $indexRep => $rep){//creation du mot bianaire des rep justes
+			$string.=$rep["juste"];
+		}
+		if(strcmp($string,$reponse["R"])){// comparaison avec les réponses users
+			echo "Reponse juste a la question ".$Id."<br />";
+			$nbJuste++;
+		}
+		else {
+			echo "Reponse fausse à la question ".$Id."<br />";
+		}
+		$nbQuestion++;
+	}
+	//insertion dans la bd du résultat
+	$note=round(($nbJuste/$nbQuestion)*100, 0);
+	///////////// insertion question
+	$sql = "INSERT INTO `resultat` VALUES (\"" . $_SESSION["idQCM"] . "\", \"" . $_SESSION["idPersonne"] . "\",".$note.");";
+	
+	if (mysqli_query($link, $sql)) {
+		// On redirige le visiteur vers la page création de question
+		echo '<br />Resultat inséré<br />';
+	} else {
+		echo "<br />Error: " . $sql . "<br>" . mysqli_error($link);
+	}
+	echo '<br /><br /><br /><a href="affichage_resultats.php">Voir vos resultats</a>';
+	
+	// Envoi du mail
+	mail('caffeinated@example.com', 'Mon Sujet', $message);
+}
+else {
+	header("Location:index.php");
+}
 
 function fetchReponses($Id,$link) {
 
